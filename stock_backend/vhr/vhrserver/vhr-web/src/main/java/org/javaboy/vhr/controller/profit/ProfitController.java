@@ -1,20 +1,13 @@
 package org.javaboy.vhr.controller.profit;
 
-import com.alibaba.druid.sql.visitor.functions.Isnull;
-import com.gegaofeng.stock.pojo.ProfitIncome;
 import org.javaboy.vhr.model.Profit;
 import org.javaboy.vhr.service.ProfitService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.convert.ReadingConverter;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.crypto.Data;
-import java.math.BigDecimal;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -49,7 +42,7 @@ public class ProfitController {
         return profitService.getAllProfitByStockId("300833");
     }
 
-    @GetMapping("getincome")
+    @GetMapping("/getincome")
     public List<Profit> getIncomeByStockId(@RequestParam(value = "stockId", required = false, defaultValue = "") String stockId,
                                            @RequestParam(value = "startTime", required = false, defaultValue = "") String startTime,
                                            @RequestParam(value = "endTime", required = false, defaultValue = "") String endTime,

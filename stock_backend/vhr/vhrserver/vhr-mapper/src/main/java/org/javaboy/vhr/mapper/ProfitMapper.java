@@ -1,6 +1,5 @@
 package org.javaboy.vhr.mapper;
 
-import com.gegaofeng.stock.pojo.ProfitIncome;
 import org.apache.ibatis.annotations.Param;
 import org.javaboy.vhr.model.Profit;
 
