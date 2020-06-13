@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gegaofeng.stock.mapper.CashFlowMapper" >
+  <resultMap id="BaseResultMap" type="com.gegaofeng.stock.model.CashFlow" >
+    <id column="no" property="no" jdbcType="INTEGER" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="stock_id" property="stockId" jdbcType="VARCHAR" />
+    <result column="report_type" property="reportType" jdbcType="TINYINT" />
+    <result column="report_date" property="reportDate" jdbcType="DATE" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="cash_flow_from_operating_activities" property="cashFlowFromOperatingActivities" jdbcType="DECIMAL" />
+    <result column="cash_received_from_sales" property="cashReceivedFromSales" jdbcType="DECIMAL" />
+    <result column="tax_refund" property="taxRefund" jdbcType="DECIMAL" />
+    <result column="other_cash_received_related_operating" property="otherCashReceivedRelatedOperating" jdbcType="DECIMAL" />
+    <result column="subtotal_cash_inflow_from_operating_activities" property="subtotalCashInflowFromOperatingActivities" jdbcType="DECIMAL" />
+    <result column="cash_for_purchasing_and_receiving_labor_services" property="cashForPurchasingAndReceivingLaborServices" jdbcType="DECIMAL" />
+    <result column="cash_paid_to_and_for_employees" property="cashPaidToAndForEmployees" jdbcType="DECIMAL" />
+    <result column="various_taxes_paid" property="variousTaxesPaid" jdbcType="DECIMAL" />
+    <result column="other_cash_paid_related_to_operating_activities" property="otherCashPaidRelatedToOperatingActivities" jdbcType="DECIMAL" />
+    <result column="subtotal_cash_outflow_from_operating_activities" property="subtotalCashOutflowFromOperatingActivities" jdbcType="DECIMAL" />
+    <result column="net_cash_flow_from_operating_activities" property="netCashFlowFromOperatingActivities" jdbcType="DECIMAL" />
+    <result column="cash_flow_from_investment_activities" property="cashFlowFromInvestmentActivities" jdbcType="DECIMAL" />
+    <result column="cash_received_from_investment_recovery" property="cashReceivedFromInvestmentRecovery" jdbcType="DECIMAL" />
+    <result column="cash_received_from_investment_income" property="cashReceivedFromInvestmentIncome" jdbcType="DECIMAL" />
+    <result column="net_cash_from_disposal_fixed_assets" property="netCashFromDisposalFixedAssets" jdbcType="DECIMAL" />
+    <result column="net_cash_from_disposal_other_business_units" property="netCashFromDisposalOtherBusinessUnits" jdbcType="DECIMAL" />
+    <result column="other_cash_received_related_to_investment" property="otherCashReceivedRelatedToInvestment" jdbcType="DECIMAL" />
+    <result column="subtotal_of_cash_inflow_from_investment" property="subtotalOfCashInflowFromInvestment" jdbcType="DECIMAL" />
+    <result column="cash_paid_for_purchase_fixed_assets" property="cashPaidForPurchaseFixedAssets" jdbcType="DECIMAL" />
+    <result column="cash_paid_for_investment" property="cashPaidForInvestment" jdbcType="DECIMAL" />
+    <result column="obtain_net_cash_paid_by_other_business_units" property="obtainNetCashPaidByOtherBusinessUnits" jdbcType="DECIMAL" />
+    <result column="other_cash_paid_related_to_investment" property="otherCashPaidRelatedToInvestment" jdbcType="DECIMAL" />
+    <result column="subtotal_of_cash_outflows_from_investment" property="subtotalOfCashOutflowsFromInvestment" jdbcType="DECIMAL" />
+    <result column="net_cash_flows_from_investing_activities" property="netCashFlowsFromInvestingActivities" jdbcType="DECIMAL" />
+    <result column="cash_flow_from_financing_activities" property="cashFlowFromFinancingActivities" jdbcType="DECIMAL" />
+    <result column="absorb_cash_received_from_investment" property="absorbCashReceivedFromInvestment" jdbcType="DECIMAL" />
+    <result column="cash_received_from_minority" property="cashReceivedFromMinority" jdbcType="DECIMAL" />
+    <result column="obtain_the_cash_received_from_the_loan" property="obtainTheCashReceivedFromTheLoan" jdbcType="DECIMAL" />
+    <result column="cash_received_from_issuing_bonds" property="cashReceivedFromIssuingBonds" jdbcType="DECIMAL" />
+    <result column="receive_other_cash_related_to_financing" property="receiveOtherCashRelatedToFinancing" jdbcType="DECIMAL" />
+    <result column="subtotal_of_cash_inflows_from_financing" property="subtotalOfCashInflowsFromFinancing" jdbcType="DECIMAL" />
+    <result column="cash_paid_for_debt_repayment" property="cashPaidForDebtRepayment" jdbcType="DECIMAL" />
+    <result column="cash_paid_for_dividends_profitsr_interest_payments" property="cashPaidForDividendsProfitsrInterestPayments" jdbcType="DECIMAL" />
+    <result column="dividends_profits_paid_to_minority_shareholders" property="dividendsProfitsPaidToMinorityShareholders" jdbcType="DECIMAL" />
+    <result column="payment_of_other_cash_related_financing" property="paymentOfOtherCashRelatedFinancing" jdbcType="DECIMAL" />
+    <result column="subtotal_of_cash_outflows_from_financing" property="subtotalOfCashOutflowsFromFinancing" jdbcType="DECIMAL" />
+    <result column="net_cash_flow_from_financing_activities" property="netCashFlowFromFinancingActivities" jdbcType="DECIMAL" />
+    <result column="impact_of_exchange_rate_changes" property="impactOfExchangeRateChanges" jdbcType="DECIMAL" />
+    <result column="net_increase_in_cash_and_cash_equivalents" property="netIncreaseInCashAndCashEquivalents" jdbcType="DECIMAL" />
+    <result column="cash_and_cash_equivalents_at_beginning" property="cashAndCashEquivalentsAtBeginning" jdbcType="DECIMAL" />
+    <result column="cash_and_cash_equivalents_at_end" property="cashAndCashEquivalentsAtEnd" jdbcType="DECIMAL" />
+    <result column="notes" property="notes" jdbcType="DECIMAL" />
+    <result column="net_profit" property="netProfit" jdbcType="DECIMAL" />
+    <result column="minority_interest" property="minorityInterest" jdbcType="DECIMAL" />
+    <result column="unrecognized_investment_losses" property="unrecognizedInvestmentLosses" jdbcType="DECIMAL" />
+    <result column="impairment_of_assets" property="impairmentOfAssets" jdbcType="DECIMAL" />
+    <result column="depreciation_of__assets" property="depreciationOfAssets" jdbcType="DECIMAL" />
+    <result column="amortization_of_intangible_assets" property="amortizationOfIntangibleAssets" jdbcType="DECIMAL" />
+    <result column="amortization_of_long_term_deferred_expenses" property="amortizationOfLongTermDeferredExpenses" jdbcType="DECIMAL" />
+    <result column="decrease_in_deferred_expenses" property="decreaseInDeferredExpenses" jdbcType="DECIMAL" />
+    <result column="increase_in_accrued_expenses" property="increaseInAccruedExpenses" jdbcType="DECIMAL" />
+    <result column="disposal_fixed_intangible_long_term_assets" property="disposalFixedIntangibleLongTermAssets" jdbcType="DECIMAL" />
+    <result column="fixed_asset_retirement_loss" property="fixedAssetRetirementLoss" jdbcType="DECIMAL" />
+    <result column="loss_from_changes_in_fair_value" property="lossFromChangesInFairValue" jdbcType="DECIMAL" />
+    <result column="deferred_income_increases" property="deferredIncomeIncreases" jdbcType="DECIMAL" />
+    <result column="estimated_liabilities" property="estimatedLiabilities" jdbcType="DECIMAL" />
+    <result column="financial_expenses" property="financialExpenses" jdbcType="DECIMAL" />
+    <result column="investment_loss" property="investmentLoss" jdbcType="DECIMAL" />
+    <result column="decrease_in_deferred_income_tax_assets" property="decreaseInDeferredIncomeTaxAssets" jdbcType="DECIMAL" />
+    <result column="increase_in_deferred_income_tax_liabilities" property="increaseInDeferredIncomeTaxLiabilities" jdbcType="DECIMAL" />
+    <result column="inventory_reduction" property="inventoryReduction" jdbcType="DECIMAL" />
+    <result column="decrease_of_operating_receivables" property="decreaseOfOperatingReceivables" jdbcType="DECIMAL" />
+    <result column="increase_in_operational_payable_items" property="increaseInOperationalPayableItems" jdbcType="DECIMAL" />
+    <result column="decrease_completed_and_unsettled_payments" property="decreaseCompletedAndUnsettledPayments" jdbcType="DECIMAL" />
+    <result column="increase_settled_outstanding_work" property="increaseSettledOutstandingWork" jdbcType="DECIMAL" />
+    <result column="other" property="other" jdbcType="DECIMAL" />
+    <result column="other_net_cash_flow_from_operating_activities" property="otherNetCashFlowFromOperatingActivities" jdbcType="DECIMAL" />
+    <result column="conversion_of_debt_into_capital" property="conversionOfDebtIntoCapital" jdbcType="DECIMAL" />
+    <result column="convertible_bonds_within_one_year" property="convertibleBondsWithinOneYear" jdbcType="DECIMAL" />
+    <result column="financing_leased_fixed_assets" property="financingLeasedFixedAssets" jdbcType="DECIMAL" />
+    <result column="cash_ending_balance" property="cashEndingBalance" jdbcType="DECIMAL" />
+    <result column="opening_balance_of_cash" property="openingBalanceOfCash" jdbcType="DECIMAL" />
+    <result column="closing_balance_of_cash_equivalents" property="closingBalanceOfCashEquivalents" jdbcType="DECIMAL" />
+    <result column="opening_balance_of_cash_equivalents" property="openingBalanceOfCashEquivalents" jdbcType="DECIMAL" />
+    <result column="net_increase_cash_and_equivalents" property="netIncreaseCashAndEquivalents" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    no, update_date, stock_id, report_type, report_date, unit, cash_flow_from_operating_activities, 
+    cash_received_from_sales, tax_refund, other_cash_received_related_operating, subtotal_cash_inflow_from_operating_activities, 
+    cash_for_purchasing_and_receiving_labor_services, cash_paid_to_and_for_employees, 
+    various_taxes_paid, other_cash_paid_related_to_operating_activities, subtotal_cash_outflow_from_operating_activities, 
+    net_cash_flow_from_operating_activities, cash_flow_from_investment_activities, cash_received_from_investment_recovery, 
+    cash_received_from_investment_income, net_cash_from_disposal_fixed_assets, net_cash_from_disposal_other_business_units, 
+    other_cash_received_related_to_investment, subtotal_of_cash_inflow_from_investment, 
+    cash_paid_for_purchase_fixed_assets, cash_paid_for_investment, obtain_net_cash_paid_by_other_business_units, 
+    other_cash_paid_related_to_investment, subtotal_of_cash_outflows_from_investment, 
+    net_cash_flows_from_investing_activities, cash_flow_from_financing_activities, absorb_cash_received_from_investment, 
+    cash_received_from_minority, obtain_the_cash_received_from_the_loan, cash_received_from_issuing_bonds, 
+    receive_other_cash_related_to_financing, subtotal_of_cash_inflows_from_financing, 
+    cash_paid_for_debt_repayment, cash_paid_for_dividends_profitsr_interest_payments, 
+    dividends_profits_paid_to_minority_shareholders, payment_of_other_cash_related_financing, 
+    subtotal_of_cash_outflows_from_financing, net_cash_flow_from_financing_activities, 
+    impact_of_exchange_rate_changes, net_increase_in_cash_and_cash_equivalents, cash_and_cash_equivalents_at_beginning, 
+    cash_and_cash_equivalents_at_end, notes, net_profit, minority_interest, unrecognized_investment_losses, 
+    impairment_of_assets, depreciation_of__assets, amortization_of_intangible_assets, 
+    amortization_of_long_term_deferred_expenses, decrease_in_deferred_expenses, increase_in_accrued_expenses, 
+    disposal_fixed_intangible_long_term_assets, fixed_asset_retirement_loss, loss_from_changes_in_fair_value, 
+    deferred_income_increases, estimated_liabilities, financial_expenses, investment_loss, 
+    decrease_in_deferred_income_tax_assets, increase_in_deferred_income_tax_liabilities, 
+    inventory_reduction, decrease_of_operating_receivables, increase_in_operational_payable_items, 
+    decrease_completed_and_unsettled_payments, increase_settled_outstanding_work, other, 
+    other_net_cash_flow_from_operating_activities, conversion_of_debt_into_capital, convertible_bonds_within_one_year, 
+    financing_leased_fixed_assets, cash_ending_balance, opening_balance_of_cash, closing_balance_of_cash_equivalents, 
+    opening_balance_of_cash_equivalents, net_increase_cash_and_equivalents
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cash_flow
+    where no = #{no,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cash_flow
+    where no = #{no,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gegaofeng.stock.model.CashFlow" >
+    insert into cash_flow (no, update_date, stock_id, 
+      report_type, report_date, unit, 
+      cash_flow_from_operating_activities, cash_received_from_sales, 
+      tax_refund, other_cash_received_related_operating, 
+      subtotal_cash_inflow_from_operating_activities, cash_for_purchasing_and_receiving_labor_services, 
+      cash_paid_to_and_for_employees, various_taxes_paid, 
+      other_cash_paid_related_to_operating_activities, subtotal_cash_outflow_from_operating_activities, 
+      net_cash_flow_from_operating_activities, cash_flow_from_investment_activities, 
+      cash_received_from_investment_recovery, cash_received_from_investment_income, 
+      net_cash_from_disposal_fixed_assets, net_cash_from_disposal_other_business_units, 
+      other_cash_received_related_to_investment, subtotal_of_cash_inflow_from_investment, 
+      cash_paid_for_purchase_fixed_assets, cash_paid_for_investment, 
+      obtain_net_cash_paid_by_other_business_units, other_cash_paid_related_to_investment, 
+      subtotal_of_cash_outflows_from_investment, net_cash_flows_from_investing_activities, 
+      cash_flow_from_financing_activities, absorb_cash_received_from_investment, 
+      cash_received_from_minority, obtain_the_cash_received_from_the_loan, 
+      cash_received_from_issuing_bonds, receive_other_cash_related_to_financing, 
+      subtotal_of_cash_inflows_from_financing, cash_paid_for_debt_repayment, 
+      cash_paid_for_dividends_profitsr_interest_payments, dividends_profits_paid_to_minority_shareholders, 
+      payment_of_other_cash_related_financing, subtotal_of_cash_outflows_from_financing, 
+      net_cash_flow_from_financing_activities, impact_of_exchange_rate_changes, 
+      net_increase_in_cash_and_cash_equivalents, cash_and_cash_equivalents_at_beginning, 
+      cash_and_cash_equivalents_at_end, notes, net_profit, 
+      minority_interest, unrecognized_investment_losses, 
+      impairment_of_assets, depreciation_of__assets, 
+      amortization_of_intangible_assets, amortization_of_long_term_deferred_expenses, 
+      decrease_in_deferred_expenses, increase_in_accrued_expenses, 
+      disposal_fixed_intangible_long_term_assets, fixed_asset_retirement_loss, 
+      loss_from_changes_in_fair_value, deferred_income_increases, 
+      estimated_liabilities, financial_expenses, 
+      investment_loss, decrease_in_deferred_income_tax_assets, 
+      increase_in_deferred_income_tax_liabilities, inventory_reduction, 
+      decrease_of_operating_receivables, increase_in_operational_payable_items, 
+      decrease_completed_and_unsettled_payments, increase_settled_outstanding_work, 
+      other, other_net_cash_flow_from_operating_activities, 
+      conversion_of_debt_into_capital, convertible_bonds_within_one_year, 
+      financing_leased_fixed_assets, cash_ending_balance, 
+      opening_balance_of_cash, closing_balance_of_cash_equivalents, 
+      opening_balance_of_cash_equivalents, net_increase_cash_and_equivalents
+      )
+    values (#{no,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP}, #{stockId,jdbcType=VARCHAR}, 
+      #{reportType,jdbcType=TINYINT}, #{reportDate,jdbcType=DATE}, #{unit,jdbcType=VARCHAR}, 
+      #{cashFlowFromOperatingActivities,jdbcType=DECIMAL}, #{cashReceivedFromSales,jdbcType=DECIMAL}, 
+      #{taxRefund,jdbcType=DECIMAL}, #{otherCashReceivedRelatedOperating,jdbcType=DECIMAL}, 
+      #{subtotalCashInflowFromOperatingActivities,jdbcType=DECIMAL}, #{cashForPurchasingAndReceivingLaborServices,jdbcType=DECIMAL}, 
+      #{cashPaidToAndForEmployees,jdbcType=DECIMAL}, #{variousTaxesPaid,jdbcType=DECIMAL}, 
+      #{otherCashPaidRelatedToOperatingActivities,jdbcType=DECIMAL}, #{subtotalCashOutflowFromOperatingActivities,jdbcType=DECIMAL}, 
+      #{netCashFlowFromOperatingActivities,jdbcType=DECIMAL}, #{cashFlowFromInvestmentActivities,jdbcType=DECIMAL}, 
+      #{cashReceivedFromInvestmentRecovery,jdbcType=DECIMAL}, #{cashReceivedFromInvestmentIncome,jdbcType=DECIMAL}, 
+      #{netCashFromDisposalFixedAssets,jdbcType=DECIMAL}, #{netCashFromDisposalOtherBusinessUnits,jdbcType=DECIMAL}, 
+      #{otherCashReceivedRelatedToInvestment,jdbcType=DECIMAL}, #{subtotalOfCashInflowFromInvestment,jdbcType=DECIMAL}, 
+      #{cashPaidForPurchaseFixedAssets,jdbcType=DECIMAL}, #{cashPaidForInvestment,jdbcType=DECIMAL}, 
+      #{obtainNetCashPaidByOtherBusinessUnits,jdbcType=DECIMAL}, #{otherCashPaidRelatedToInvestment,jdbcType=DECIMAL}, 
+      #{subtotalOfCashOutflowsFromInvestment,jdbcType=DECIMAL}, #{netCashFlowsFromInvestingActivities,jdbcType=DECIMAL}, 
+      #{cashFlowFromFinancingActivities,jdbcType=DECIMAL}, #{absorbCashReceivedFromInvestment,jdbcType=DECIMAL}, 
+      #{cashReceivedFromMinority,jdbcType=DECIMAL}, #{obtainTheCashReceivedFromTheLoan,jdbcType=DECIMAL}, 
+      #{cashReceivedFromIssuingBonds,jdbcType=DECIMAL}, #{receiveOtherCashRelatedToFinancing,jdbcType=DECIMAL}, 
+      #{subtotalOfCashInflowsFromFinancing,jdbcType=DECIMAL}, #{cashPaidForDebtRepayment,jdbcType=DECIMAL}, 
+      #{cashPaidForDividendsProfitsrInterestPayments,jdbcType=DECIMAL}, #{dividendsProfitsPaidToMinorityShareholders,jdbcType=DECIMAL}, 
+      #{paymentOfOtherCashRelatedFinancing,jdbcType=DECIMAL}, #{subtotalOfCashOutflowsFromFinancing,jdbcType=DECIMAL}, 
+      #{netCashFlowFromFinancingActivities,jdbcType=DECIMAL}, #{impactOfExchangeRateChanges,jdbcType=DECIMAL}, 
+      #{netIncreaseInCashAndCashEquivalents,jdbcType=DECIMAL}, #{cashAndCashEquivalentsAtBeginning,jdbcType=DECIMAL}, 
+      #{cashAndCashEquivalentsAtEnd,jdbcType=DECIMAL}, #{notes,jdbcType=DECIMAL}, #{netProfit,jdbcType=DECIMAL}, 
+      #{minorityInterest,jdbcType=DECIMAL}, #{unrecognizedInvestmentLosses,jdbcType=DECIMAL}, 
+      #{impairmentOfAssets,jdbcType=DECIMAL}, #{depreciationOfAssets,jdbcType=DECIMAL}, 
+      #{amortizationOfIntangibleAssets,jdbcType=DECIMAL}, #{amortizationOfLongTermDeferredExpenses,jdbcType=DECIMAL}, 
+      #{decreaseInDeferredExpenses,jdbcType=DECIMAL}, #{increaseInAccruedExpenses,jdbcType=DECIMAL}, 
+      #{disposalFixedIntangibleLongTermAssets,jdbcType=DECIMAL}, #{fixedAssetRetirementLoss,jdbcType=DECIMAL}, 
+      #{lossFromChangesInFairValue,jdbcType=DECIMAL}, #{deferredIncomeIncreases,jdbcType=DECIMAL}, 
+      #{estimatedLiabilities,jdbcType=DECIMAL}, #{financialExpenses,jdbcType=DECIMAL}, 
+      #{investmentLoss,jdbcType=DECIMAL}, #{decreaseInDeferredIncomeTaxAssets,jdbcType=DECIMAL}, 
+      #{increaseInDeferredIncomeTaxLiabilities,jdbcType=DECIMAL}, #{inventoryReduction,jdbcType=DECIMAL}, 
+      #{decreaseOfOperatingReceivables,jdbcType=DECIMAL}, #{increaseInOperationalPayableItems,jdbcType=DECIMAL}, 
+      #{decreaseCompletedAndUnsettledPayments,jdbcType=DECIMAL}, #{increaseSettledOutstandingWork,jdbcType=DECIMAL}, 
+      #{other,jdbcType=DECIMAL}, #{otherNetCashFlowFromOperatingActivities,jdbcType=DECIMAL}, 
+      #{conversionOfDebtIntoCapital,jdbcType=DECIMAL}, #{convertibleBondsWithinOneYear,jdbcType=DECIMAL}, 
+      #{financingLeasedFixedAssets,jdbcType=DECIMAL}, #{cashEndingBalance,jdbcType=DECIMAL}, 
+      #{openingBalanceOfCash,jdbcType=DECIMAL}, #{closingBalanceOfCashEquivalents,jdbcType=DECIMAL}, 
+      #{openingBalanceOfCashEquivalents,jdbcType=DECIMAL}, #{netIncreaseCashAndEquivalents,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gegaofeng.stock.model.CashFlow" >
+    insert into cash_flow
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="no != null" >
+        no,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="stockId != null" >
+        stock_id,
+      </if>
+      <if test="reportType != null" >
+        report_type,
+      </if>
+      <if test="reportDate != null" >
+        report_date,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="cashFlowFromOperatingActivities != null" >
+        cash_flow_from_operating_activities,
+      </if>
+      <if test="cashReceivedFromSales != null" >
+        cash_received_from_sales,
+      </if>
+      <if test="taxRefund != null" >
+        tax_refund,
+      </if>
+      <if test="otherCashReceivedRelatedOperating != null" >
+        other_cash_received_related_operating,
+      </if>
+      <if test="subtotalCashInflowFromOperatingActivities != null" >
+        subtotal_cash_inflow_from_operating_activities,
+      </if>
+      <if test="cashForPurchasingAndReceivingLaborServices != null" >
+        cash_for_purchasing_and_receiving_labor_services,
+      </if>
+      <if test="cashPaidToAndForEmployees != null" >
+        cash_paid_to_and_for_employees,
+      </if>
+      <if test="variousTaxesPaid != null" >
+        various_taxes_paid,
+      </if>
+      <if test="otherCashPaidRelatedToOperatingActivities != null" >
+        other_cash_paid_related_to_operating_activities,
+      </if>
+      <if test="subtotalCashOutflowFromOperatingActivities != null" >
+        subtotal_cash_outflow_from_operating_activities,
+      </if>
+      <if test="netCashFlowFromOperatingActivities != null" >
+        net_cash_flow_from_operating_activities,
+      </if>
+      <if test="cashFlowFromInvestmentActivities != null" >
+        cash_flow_from_investment_activities,
+      </if>
+      <if test="cashReceivedFromInvestmentRecovery != null" >
+        cash_received_from_investment_recovery,
+      </if>
+      <if test="cashReceivedFromInvestmentIncome != null" >
+        cash_received_from_investment_income,
+      </if>
+      <if test="netCashFromDisposalFixedAssets != null" >
+        net_cash_from_disposal_fixed_assets,
+      </if>
+      <if test="netCashFromDisposalOtherBusinessUnits != null" >
+        net_cash_from_disposal_other_business_units,
+      </if>
+      <if test="otherCashReceivedRelatedToInvestment != null" >
+        other_cash_received_related_to_investment,
+      </if>
+      <if test="subtotalOfCashInflowFromInvestment != null" >
+        subtotal_of_cash_inflow_from_investment,
+      </if>
+      <if test="cashPaidForPurchaseFixedAssets != null" >
+        cash_paid_for_purchase_fixed_assets,
+      </if>
+      <if test="cashPaidForInvestment != null" >
+        cash_paid_for_investment,
+      </if>
+      <if test="obtainNetCashPaidByOtherBusinessUnits != null" >
+        obtain_net_cash_paid_by_other_business_units,
+      </if>
+      <if test="otherCashPaidRelatedToInvestment != null" >
+        other_cash_paid_related_to_investment,
+      </if>
+      <if test="subtotalOfCashOutflowsFromInvestment != null" >
+        subtotal_of_cash_outflows_from_investment,
+      </if>
+      <if test="netCashFlowsFromInvestingActivities != null" >
+        net_cash_flows_from_investing_activities,
+      </if>
+      <if test="cashFlowFromFinancingActivities != null" >
+        cash_flow_from_financing_activities,
+      </if>
+      <if test="absorbCashReceivedFromInvestment != null" >
+        absorb_cash_received_from_investment,
+      </if>
+      <if test="cashReceivedFromMinority != null" >
+        cash_received_from_minority,
+      </if>
+      <if test="obtainTheCashReceivedFromTheLoan != null" >
+        obtain_the_cash_received_from_the_loan,
+      </if>
+      <if test="cashReceivedFromIssuingBonds != null" >
+        cash_received_from_issuing_bonds,
+      </if>
+      <if test="receiveOtherCashRelatedToFinancing != null" >
+        receive_other_cash_related_to_financing,
+      </if>
+      <if test="subtotalOfCashInflowsFromFinancing != null" >
+        subtotal_of_cash_inflows_from_financing,
+      </if>
+      <if test="cashPaidForDebtRepayment != null" >
+        cash_paid_for_debt_repayment,
+      </if>
+      <if test="cashPaidForDividendsProfitsrInterestPayments != null" >
+        cash_paid_for_dividends_profitsr_interest_payments,
+      </if>
+      <if test="dividendsProfitsPaidToMinorityShareholders != null" >
+        dividends_profits_paid_to_minority_shareholders,
+      </if>
+      <if test="paymentOfOtherCashRelatedFinancing != null" >
+        payment_of_other_cash_related_financing,
+      </if>
+      <if test="subtotalOfCashOutflowsFromFinancing != null" >
+        subtotal_of_cash_outflows_from_financing,
+      </if>
+      <if test="netCashFlowFromFinancingActivities != null" >
+        net_cash_flow_from_financing_activities,
+      </if>
+      <if test="impactOfExchangeRateChanges != null" >
+        impact_of_exchange_rate_changes,
+      </if>
+      <if test="netIncreaseInCashAndCashEquivalents != null" >
+        net_increase_in_cash_and_cash_equivalents,
+      </if>
+      <if test="cashAndCashEquivalentsAtBeginning != null" >
+        cash_and_cash_equivalents_at_beginning,
+      </if>
+      <if test="cashAndCashEquivalentsAtEnd != null" >
+        cash_and_cash_equivalents_at_end,
+      </if>
+      <if test="notes != null" >
+        notes,
+      </if>
+      <if test="netProfit != null" >
+        net_profit,
+      </if>
+      <if test="minorityInterest != null" >
+        minority_interest,
+      </if>
+      <if test="unrecognizedInvestmentLosses != null" >
+        unrecognized_investment_losses,
+      </if>
+      <if test="impairmentOfAssets != null" >
+        impairment_of_assets,
+      </if>
+      <if test="depreciationOfAssets != null" >
+        depreciation_of__assets,
+      </if>
+      <if test="amortizationOfIntangibleAssets != null" >
+        amortization_of_intangible_assets,
+      </if>
+      <if test="amortizationOfLongTermDeferredExpenses != null" >
+        amortization_of_long_term_deferred_expenses,
+      </if>
+      <if test="decreaseInDeferredExpenses != null" >
+        decrease_in_deferred_expenses,
+      </if>
+      <if test="increaseInAccruedExpenses != null" >
+        increase_in_accrued_expenses,
+      </if>
+      <if test="disposalFixedIntangibleLongTermAssets != null" >
+        disposal_fixed_intangible_long_term_assets,
+      </if>
+      <if test="fixedAssetRetirementLoss != null" >
+        fixed_asset_retirement_loss,
+      </if>
+      <if test="lossFromChangesInFairValue != null" >
+        loss_from_changes_in_fair_value,
+      </if>
+      <if test="deferredIncomeIncreases != null" >
+        deferred_income_increases,
+      </if>
+      <if test="estimatedLiabilities != null" >
+        estimated_liabilities,
+      </if>
+      <if test="financialExpenses != null" >
+        financial_expenses,
+      </if>
+      <if test="investmentLoss != null" >
+        investment_loss,
+      </if>
+      <if test="decreaseInDeferredIncomeTaxAssets != null" >
+        decrease_in_deferred_income_tax_assets,
+      </if>
+      <if test="increaseInDeferredIncomeTaxLiabilities != null" >
+        increase_in_deferred_income_tax_liabilities,
+      </if>
+      <if test="inventoryReduction != null" >
+        inventory_reduction,
+      </if>
+      <if test="decreaseOfOperatingReceivables != null" >
+        decrease_of_operating_receivables,
+      </if>
+      <if test="increaseInOperationalPayableItems != null" >
+        increase_in_operational_payable_items,
+      </if>
+      <if test="decreaseCompletedAndUnsettledPayments != null" >
+        decrease_completed_and_unsettled_payments,
+      </if>
+      <if test="increaseSettledOutstandingWork != null" >
+        increase_settled_outstanding_work,
+      </if>
+      <if test="other != null" >
+        other,
+      </if>
+      <if test="otherNetCashFlowFromOperatingActivities != null" >
+        other_net_cash_flow_from_operating_activities,
+      </if>
+      <if test="conversionOfDebtIntoCapital != null" >
+        conversion_of_debt_into_capital,
+      </if>
+      <if test="convertibleBondsWithinOneYear != null" >
+        convertible_bonds_within_one_year,
+      </if>
+      <if test="financingLeasedFixedAssets != null" >
+        financing_leased_fixed_assets,
+      </if>
+      <if test="cashEndingBalance != null" >
+        cash_ending_balance,
+      </if>
+      <if test="openingBalanceOfCash != null" >
+        opening_balance_of_cash,
+      </if>
+      <if test="closingBalanceOfCashEquivalents != null" >
+        closing_balance_of_cash_equivalents,
+      </if>
+      <if test="openingBalanceOfCashEquivalents != null" >
+        opening_balance_of_cash_equivalents,
+      </if>
+      <if test="netIncreaseCashAndEquivalents != null" >
+        net_increase_cash_and_equivalents,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="no != null" >
+        #{no,jdbcType=INTEGER},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stockId != null" >
+        #{stockId,jdbcType=VARCHAR},
+      </if>
+      <if test="reportType != null" >
+        #{reportType,jdbcType=TINYINT},
+      </if>
+      <if test="reportDate != null" >
+        #{reportDate,jdbcType=DATE},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="cashFlowFromOperatingActivities != null" >
+        #{cashFlowFromOperatingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="cashReceivedFromSales != null" >
+        #{cashReceivedFromSales,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRefund != null" >
+        #{taxRefund,jdbcType=DECIMAL},
+      </if>
+      <if test="otherCashReceivedRelatedOperating != null" >
+        #{otherCashReceivedRelatedOperating,jdbcType=DECIMAL},
+      </if>
+      <if test="subtotalCashInflowFromOperatingActivities != null" >
+        #{subtotalCashInflowFromOperatingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="cashForPurchasingAndReceivingLaborServices != null" >
+        #{cashForPurchasingAndReceivingLaborServices,jdbcType=DECIMAL},
+      </if>
+      <if test="cashPaidToAndForEmployees != null" >
+        #{cashPaidToAndForEmployees,jdbcType=DECIMAL},
+      </if>
+      <if test="variousTaxesPaid != null" >
+        #{variousTaxesPaid,jdbcType=DECIMAL},
+      </if>
+      <if test="otherCashPaidRelatedToOperatingActivities != null" >
+        #{otherCashPaidRelatedToOperatingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="subtotalCashOutflowFromOperatingActivities != null" >
+        #{subtotalCashOutflowFromOperatingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="netCashFlowFromOperatingActivities != null" >
+        #{netCashFlowFromOperatingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="cashFlowFromInvestmentActivities != null" >
+        #{cashFlowFromInvestmentActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="cashReceivedFromInvestmentRecovery != null" >
+        #{cashReceivedFromInvestmentRecovery,jdbcType=DECIMAL},
+      </if>
+      <if test="cashReceivedFromInvestmentIncome != null" >
+        #{cashReceivedFromInvestmentIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="netCashFromDisposalFixedAssets != null" >
+        #{netCashFromDisposalFixedAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="netCashFromDisposalOtherBusinessUnits != null" >
+        #{netCashFromDisposalOtherBusinessUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="otherCashReceivedRelatedToInvestment != null" >
+        #{otherCashReceivedRelatedToInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="subtotalOfCashInflowFromInvestment != null" >
+        #{subtotalOfCashInflowFromInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="cashPaidForPurchaseFixedAssets != null" >
+        #{cashPaidForPurchaseFixedAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="cashPaidForInvestment != null" >
+        #{cashPaidForInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="obtainNetCashPaidByOtherBusinessUnits != null" >
+        #{obtainNetCashPaidByOtherBusinessUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="otherCashPaidRelatedToInvestment != null" >
+        #{otherCashPaidRelatedToInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="subtotalOfCashOutflowsFromInvestment != null" >
+        #{subtotalOfCashOutflowsFromInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="netCashFlowsFromInvestingActivities != null" >
+        #{netCashFlowsFromInvestingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="cashFlowFromFinancingActivities != null" >
+        #{cashFlowFromFinancingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="absorbCashReceivedFromInvestment != null" >
+        #{absorbCashReceivedFromInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="cashReceivedFromMinority != null" >
+        #{cashReceivedFromMinority,jdbcType=DECIMAL},
+      </if>
+      <if test="obtainTheCashReceivedFromTheLoan != null" >
+        #{obtainTheCashReceivedFromTheLoan,jdbcType=DECIMAL},
+      </if>
+      <if test="cashReceivedFromIssuingBonds != null" >
+        #{cashReceivedFromIssuingBonds,jdbcType=DECIMAL},
+      </if>
+      <if test="receiveOtherCashRelatedToFinancing != null" >
+        #{receiveOtherCashRelatedToFinancing,jdbcType=DECIMAL},
+      </if>
+      <if test="subtotalOfCashInflowsFromFinancing != null" >
+        #{subtotalOfCashInflowsFromFinancing,jdbcType=DECIMAL},
+      </if>
+      <if test="cashPaidForDebtRepayment != null" >
+        #{cashPaidForDebtRepayment,jdbcType=DECIMAL},
+      </if>
+      <if test="cashPaidForDividendsProfitsrInterestPayments != null" >
+        #{cashPaidForDividendsProfitsrInterestPayments,jdbcType=DECIMAL},
+      </if>
+      <if test="dividendsProfitsPaidToMinorityShareholders != null" >
+        #{dividendsProfitsPaidToMinorityShareholders,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentOfOtherCashRelatedFinancing != null" >
+        #{paymentOfOtherCashRelatedFinancing,jdbcType=DECIMAL},
+      </if>
+      <if test="subtotalOfCashOutflowsFromFinancing != null" >
+        #{subtotalOfCashOutflowsFromFinancing,jdbcType=DECIMAL},
+      </if>
+      <if test="netCashFlowFromFinancingActivities != null" >
+        #{netCashFlowFromFinancingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="impactOfExchangeRateChanges != null" >
+        #{impactOfExchangeRateChanges,jdbcType=DECIMAL},
+      </if>
+      <if test="netIncreaseInCashAndCashEquivalents != null" >
+        #{netIncreaseInCashAndCashEquivalents,jdbcType=DECIMAL},
+      </if>
+      <if test="cashAndCashEquivalentsAtBeginning != null" >
+        #{cashAndCashEquivalentsAtBeginning,jdbcType=DECIMAL},
+      </if>
+      <if test="cashAndCashEquivalentsAtEnd != null" >
+        #{cashAndCashEquivalentsAtEnd,jdbcType=DECIMAL},
+      </if>
+      <if test="notes != null" >
+        #{notes,jdbcType=DECIMAL},
+      </if>
+      <if test="netProfit != null" >
+        #{netProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="minorityInterest != null" >
+        #{minorityInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="unrecognizedInvestmentLosses != null" >
+        #{unrecognizedInvestmentLosses,jdbcType=DECIMAL},
+      </if>
+      <if test="impairmentOfAssets != null" >
+        #{impairmentOfAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="depreciationOfAssets != null" >
+        #{depreciationOfAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="amortizationOfIntangibleAssets != null" >
+        #{amortizationOfIntangibleAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="amortizationOfLongTermDeferredExpenses != null" >
+        #{amortizationOfLongTermDeferredExpenses,jdbcType=DECIMAL},
+      </if>
+      <if test="decreaseInDeferredExpenses != null" >
+        #{decreaseInDeferredExpenses,jdbcType=DECIMAL},
+      </if>
+      <if test="increaseInAccruedExpenses != null" >
+        #{increaseInAccruedExpenses,jdbcType=DECIMAL},
+      </if>
+      <if test="disposalFixedIntangibleLongTermAssets != null" >
+        #{disposalFixedIntangibleLongTermAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="fixedAssetRetirementLoss != null" >
+        #{fixedAssetRetirementLoss,jdbcType=DECIMAL},
+      </if>
+      <if test="lossFromChangesInFairValue != null" >
+        #{lossFromChangesInFairValue,jdbcType=DECIMAL},
+      </if>
+      <if test="deferredIncomeIncreases != null" >
+        #{deferredIncomeIncreases,jdbcType=DECIMAL},
+      </if>
+      <if test="estimatedLiabilities != null" >
+        #{estimatedLiabilities,jdbcType=DECIMAL},
+      </if>
+      <if test="financialExpenses != null" >
+        #{financialExpenses,jdbcType=DECIMAL},
+      </if>
+      <if test="investmentLoss != null" >
+        #{investmentLoss,jdbcType=DECIMAL},
+      </if>
+      <if test="decreaseInDeferredIncomeTaxAssets != null" >
+        #{decreaseInDeferredIncomeTaxAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="increaseInDeferredIncomeTaxLiabilities != null" >
+        #{increaseInDeferredIncomeTaxLiabilities,jdbcType=DECIMAL},
+      </if>
+      <if test="inventoryReduction != null" >
+        #{inventoryReduction,jdbcType=DECIMAL},
+      </if>
+      <if test="decreaseOfOperatingReceivables != null" >
+        #{decreaseOfOperatingReceivables,jdbcType=DECIMAL},
+      </if>
+      <if test="increaseInOperationalPayableItems != null" >
+        #{increaseInOperationalPayableItems,jdbcType=DECIMAL},
+      </if>
+      <if test="decreaseCompletedAndUnsettledPayments != null" >
+        #{decreaseCompletedAndUnsettledPayments,jdbcType=DECIMAL},
+      </if>
+      <if test="increaseSettledOutstandingWork != null" >
+        #{increaseSettledOutstandingWork,jdbcType=DECIMAL},
+      </if>
+      <if test="other != null" >
+        #{other,jdbcType=DECIMAL},
+      </if>
+      <if test="otherNetCashFlowFromOperatingActivities != null" >
+        #{otherNetCashFlowFromOperatingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="conversionOfDebtIntoCapital != null" >
+        #{conversionOfDebtIntoCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="convertibleBondsWithinOneYear != null" >
+        #{convertibleBondsWithinOneYear,jdbcType=DECIMAL},
+      </if>
+      <if test="financingLeasedFixedAssets != null" >
+        #{financingLeasedFixedAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="cashEndingBalance != null" >
+        #{cashEndingBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="openingBalanceOfCash != null" >
+        #{openingBalanceOfCash,jdbcType=DECIMAL},
+      </if>
+      <if test="closingBalanceOfCashEquivalents != null" >
+        #{closingBalanceOfCashEquivalents,jdbcType=DECIMAL},
+      </if>
+      <if test="openingBalanceOfCashEquivalents != null" >
+        #{openingBalanceOfCashEquivalents,jdbcType=DECIMAL},
+      </if>
+      <if test="netIncreaseCashAndEquivalents != null" >
+        #{netIncreaseCashAndEquivalents,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gegaofeng.stock.model.CashFlow" >
+    update cash_flow
+    <set >
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stockId != null" >
+        stock_id = #{stockId,jdbcType=VARCHAR},
+      </if>
+      <if test="reportType != null" >
+        report_type = #{reportType,jdbcType=TINYINT},
+      </if>
+      <if test="reportDate != null" >
+        report_date = #{reportDate,jdbcType=DATE},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="cashFlowFromOperatingActivities != null" >
+        cash_flow_from_operating_activities = #{cashFlowFromOperatingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="cashReceivedFromSales != null" >
+        cash_received_from_sales = #{cashReceivedFromSales,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRefund != null" >
+        tax_refund = #{taxRefund,jdbcType=DECIMAL},
+      </if>
+      <if test="otherCashReceivedRelatedOperating != null" >
+        other_cash_received_related_operating = #{otherCashReceivedRelatedOperating,jdbcType=DECIMAL},
+      </if>
+      <if test="subtotalCashInflowFromOperatingActivities != null" >
+        subtotal_cash_inflow_from_operating_activities = #{subtotalCashInflowFromOperatingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="cashForPurchasingAndReceivingLaborServices != null" >
+        cash_for_purchasing_and_receiving_labor_services = #{cashForPurchasingAndReceivingLaborServices,jdbcType=DECIMAL},
+      </if>
+      <if test="cashPaidToAndForEmployees != null" >
+        cash_paid_to_and_for_employees = #{cashPaidToAndForEmployees,jdbcType=DECIMAL},
+      </if>
+      <if test="variousTaxesPaid != null" >
+        various_taxes_paid = #{variousTaxesPaid,jdbcType=DECIMAL},
+      </if>
+      <if test="otherCashPaidRelatedToOperatingActivities != null" >
+        other_cash_paid_related_to_operating_activities = #{otherCashPaidRelatedToOperatingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="subtotalCashOutflowFromOperatingActivities != null" >
+        subtotal_cash_outflow_from_operating_activities = #{subtotalCashOutflowFromOperatingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="netCashFlowFromOperatingActivities != null" >
+        net_cash_flow_from_operating_activities = #{netCashFlowFromOperatingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="cashFlowFromInvestmentActivities != null" >
+        cash_flow_from_investment_activities = #{cashFlowFromInvestmentActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="cashReceivedFromInvestmentRecovery != null" >
+        cash_received_from_investment_recovery = #{cashReceivedFromInvestmentRecovery,jdbcType=DECIMAL},
+      </if>
+      <if test="cashReceivedFromInvestmentIncome != null" >
+        cash_received_from_investment_income = #{cashReceivedFromInvestmentIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="netCashFromDisposalFixedAssets != null" >
+        net_cash_from_disposal_fixed_assets = #{netCashFromDisposalFixedAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="netCashFromDisposalOtherBusinessUnits != null" >
+        net_cash_from_disposal_other_business_units = #{netCashFromDisposalOtherBusinessUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="otherCashReceivedRelatedToInvestment != null" >
+        other_cash_received_related_to_investment = #{otherCashReceivedRelatedToInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="subtotalOfCashInflowFromInvestment != null" >
+        subtotal_of_cash_inflow_from_investment = #{subtotalOfCashInflowFromInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="cashPaidForPurchaseFixedAssets != null" >
+        cash_paid_for_purchase_fixed_assets = #{cashPaidForPurchaseFixedAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="cashPaidForInvestment != null" >
+        cash_paid_for_investment = #{cashPaidForInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="obtainNetCashPaidByOtherBusinessUnits != null" >
+        obtain_net_cash_paid_by_other_business_units = #{obtainNetCashPaidByOtherBusinessUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="otherCashPaidRelatedToInvestment != null" >
+        other_cash_paid_related_to_investment = #{otherCashPaidRelatedToInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="subtotalOfCashOutflowsFromInvestment != null" >
+        subtotal_of_cash_outflows_from_investment = #{subtotalOfCashOutflowsFromInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="netCashFlowsFromInvestingActivities != null" >
+        net_cash_flows_from_investing_activities = #{netCashFlowsFromInvestingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="cashFlowFromFinancingActivities != null" >
+        cash_flow_from_financing_activities = #{cashFlowFromFinancingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="absorbCashReceivedFromInvestment != null" >
+        absorb_cash_received_from_investment = #{absorbCashReceivedFromInvestment,jdbcType=DECIMAL},
+      </if>
+      <if test="cashReceivedFromMinority != null" >
+        cash_received_from_minority = #{cashReceivedFromMinority,jdbcType=DECIMAL},
+      </if>
+      <if test="obtainTheCashReceivedFromTheLoan != null" >
+        obtain_the_cash_received_from_the_loan = #{obtainTheCashReceivedFromTheLoan,jdbcType=DECIMAL},
+      </if>
+      <if test="cashReceivedFromIssuingBonds != null" >
+        cash_received_from_issuing_bonds = #{cashReceivedFromIssuingBonds,jdbcType=DECIMAL},
+      </if>
+      <if test="receiveOtherCashRelatedToFinancing != null" >
+        receive_other_cash_related_to_financing = #{receiveOtherCashRelatedToFinancing,jdbcType=DECIMAL},
+      </if>
+      <if test="subtotalOfCashInflowsFromFinancing != null" >
+        subtotal_of_cash_inflows_from_financing = #{subtotalOfCashInflowsFromFinancing,jdbcType=DECIMAL},
+      </if>
+      <if test="cashPaidForDebtRepayment != null" >
+        cash_paid_for_debt_repayment = #{cashPaidForDebtRepayment,jdbcType=DECIMAL},
+      </if>
+      <if test="cashPaidForDividendsProfitsrInterestPayments != null" >
+        cash_paid_for_dividends_profitsr_interest_payments = #{cashPaidForDividendsProfitsrInterestPayments,jdbcType=DECIMAL},
+      </if>
+      <if test="dividendsProfitsPaidToMinorityShareholders != null" >
+        dividends_profits_paid_to_minority_shareholders = #{dividendsProfitsPaidToMinorityShareholders,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentOfOtherCashRelatedFinancing != null" >
+        payment_of_other_cash_related_financing = #{paymentOfOtherCashRelatedFinancing,jdbcType=DECIMAL},
+      </if>
+      <if test="subtotalOfCashOutflowsFromFinancing != null" >
+        subtotal_of_cash_outflows_from_financing = #{subtotalOfCashOutflowsFromFinancing,jdbcType=DECIMAL},
+      </if>
+      <if test="netCashFlowFromFinancingActivities != null" >
+        net_cash_flow_from_financing_activities = #{netCashFlowFromFinancingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="impactOfExchangeRateChanges != null" >
+        impact_of_exchange_rate_changes = #{impactOfExchangeRateChanges,jdbcType=DECIMAL},
+      </if>
+      <if test="netIncreaseInCashAndCashEquivalents != null" >
+        net_increase_in_cash_and_cash_equivalents = #{netIncreaseInCashAndCashEquivalents,jdbcType=DECIMAL},
+      </if>
+      <if test="cashAndCashEquivalentsAtBeginning != null" >
+        cash_and_cash_equivalents_at_beginning = #{cashAndCashEquivalentsAtBeginning,jdbcType=DECIMAL},
+      </if>
+      <if test="cashAndCashEquivalentsAtEnd != null" >
+        cash_and_cash_equivalents_at_end = #{cashAndCashEquivalentsAtEnd,jdbcType=DECIMAL},
+      </if>
+      <if test="notes != null" >
+        notes = #{notes,jdbcType=DECIMAL},
+      </if>
+      <if test="netProfit != null" >
+        net_profit = #{netProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="minorityInterest != null" >
+        minority_interest = #{minorityInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="unrecognizedInvestmentLosses != null" >
+        unrecognized_investment_losses = #{unrecognizedInvestmentLosses,jdbcType=DECIMAL},
+      </if>
+      <if test="impairmentOfAssets != null" >
+        impairment_of_assets = #{impairmentOfAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="depreciationOfAssets != null" >
+        depreciation_of__assets = #{depreciationOfAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="amortizationOfIntangibleAssets != null" >
+        amortization_of_intangible_assets = #{amortizationOfIntangibleAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="amortizationOfLongTermDeferredExpenses != null" >
+        amortization_of_long_term_deferred_expenses = #{amortizationOfLongTermDeferredExpenses,jdbcType=DECIMAL},
+      </if>
+      <if test="decreaseInDeferredExpenses != null" >
+        decrease_in_deferred_expenses = #{decreaseInDeferredExpenses,jdbcType=DECIMAL},
+      </if>
+      <if test="increaseInAccruedExpenses != null" >
+        increase_in_accrued_expenses = #{increaseInAccruedExpenses,jdbcType=DECIMAL},
+      </if>
+      <if test="disposalFixedIntangibleLongTermAssets != null" >
+        disposal_fixed_intangible_long_term_assets = #{disposalFixedIntangibleLongTermAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="fixedAssetRetirementLoss != null" >
+        fixed_asset_retirement_loss = #{fixedAssetRetirementLoss,jdbcType=DECIMAL},
+      </if>
+      <if test="lossFromChangesInFairValue != null" >
+        loss_from_changes_in_fair_value = #{lossFromChangesInFairValue,jdbcType=DECIMAL},
+      </if>
+      <if test="deferredIncomeIncreases != null" >
+        deferred_income_increases = #{deferredIncomeIncreases,jdbcType=DECIMAL},
+      </if>
+      <if test="estimatedLiabilities != null" >
+        estimated_liabilities = #{estimatedLiabilities,jdbcType=DECIMAL},
+      </if>
+      <if test="financialExpenses != null" >
+        financial_expenses = #{financialExpenses,jdbcType=DECIMAL},
+      </if>
+      <if test="investmentLoss != null" >
+        investment_loss = #{investmentLoss,jdbcType=DECIMAL},
+      </if>
+      <if test="decreaseInDeferredIncomeTaxAssets != null" >
+        decrease_in_deferred_income_tax_assets = #{decreaseInDeferredIncomeTaxAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="increaseInDeferredIncomeTaxLiabilities != null" >
+        increase_in_deferred_income_tax_liabilities = #{increaseInDeferredIncomeTaxLiabilities,jdbcType=DECIMAL},
+      </if>
+      <if test="inventoryReduction != null" >
+        inventory_reduction = #{inventoryReduction,jdbcType=DECIMAL},
+      </if>
+      <if test="decreaseOfOperatingReceivables != null" >
+        decrease_of_operating_receivables = #{decreaseOfOperatingReceivables,jdbcType=DECIMAL},
+      </if>
+      <if test="increaseInOperationalPayableItems != null" >
+        increase_in_operational_payable_items = #{increaseInOperationalPayableItems,jdbcType=DECIMAL},
+      </if>
+      <if test="decreaseCompletedAndUnsettledPayments != null" >
+        decrease_completed_and_unsettled_payments = #{decreaseCompletedAndUnsettledPayments,jdbcType=DECIMAL},
+      </if>
+      <if test="increaseSettledOutstandingWork != null" >
+        increase_settled_outstanding_work = #{increaseSettledOutstandingWork,jdbcType=DECIMAL},
+      </if>
+      <if test="other != null" >
+        other = #{other,jdbcType=DECIMAL},
+      </if>
+      <if test="otherNetCashFlowFromOperatingActivities != null" >
+        other_net_cash_flow_from_operating_activities = #{otherNetCashFlowFromOperatingActivities,jdbcType=DECIMAL},
+      </if>
+      <if test="conversionOfDebtIntoCapital != null" >
+        conversion_of_debt_into_capital = #{conversionOfDebtIntoCapital,jdbcType=DECIMAL},
+      </if>
+      <if test="convertibleBondsWithinOneYear != null" >
+        convertible_bonds_within_one_year = #{convertibleBondsWithinOneYear,jdbcType=DECIMAL},
+      </if>
+      <if test="financingLeasedFixedAssets != null" >
+        financing_leased_fixed_assets = #{financingLeasedFixedAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="cashEndingBalance != null" >
+        cash_ending_balance = #{cashEndingBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="openingBalanceOfCash != null" >
+        opening_balance_of_cash = #{openingBalanceOfCash,jdbcType=DECIMAL},
+      </if>
+      <if test="closingBalanceOfCashEquivalents != null" >
+        closing_balance_of_cash_equivalents = #{closingBalanceOfCashEquivalents,jdbcType=DECIMAL},
+      </if>
+      <if test="openingBalanceOfCashEquivalents != null" >
+        opening_balance_of_cash_equivalents = #{openingBalanceOfCashEquivalents,jdbcType=DECIMAL},
+      </if>
+      <if test="netIncreaseCashAndEquivalents != null" >
+        net_increase_cash_and_equivalents = #{netIncreaseCashAndEquivalents,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where no = #{no,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gegaofeng.stock.model.CashFlow" >
+    update cash_flow
+    set update_date = #{updateDate,jdbcType=TIMESTAMP},
+      stock_id = #{stockId,jdbcType=VARCHAR},
+      report_type = #{reportType,jdbcType=TINYINT},
+      report_date = #{reportDate,jdbcType=DATE},
+      unit = #{unit,jdbcType=VARCHAR},
+      cash_flow_from_operating_activities = #{cashFlowFromOperatingActivities,jdbcType=DECIMAL},
+      cash_received_from_sales = #{cashReceivedFromSales,jdbcType=DECIMAL},
+      tax_refund = #{taxRefund,jdbcType=DECIMAL},
+      other_cash_received_related_operating = #{otherCashReceivedRelatedOperating,jdbcType=DECIMAL},
+      subtotal_cash_inflow_from_operating_activities = #{subtotalCashInflowFromOperatingActivities,jdbcType=DECIMAL},
+      cash_for_purchasing_and_receiving_labor_services = #{cashForPurchasingAndReceivingLaborServices,jdbcType=DECIMAL},
+      cash_paid_to_and_for_employees = #{cashPaidToAndForEmployees,jdbcType=DECIMAL},
+      various_taxes_paid = #{variousTaxesPaid,jdbcType=DECIMAL},
+      other_cash_paid_related_to_operating_activities = #{otherCashPaidRelatedToOperatingActivities,jdbcType=DECIMAL},
+      subtotal_cash_outflow_from_operating_activities = #{subtotalCashOutflowFromOperatingActivities,jdbcType=DECIMAL},
+      net_cash_flow_from_operating_activities = #{netCashFlowFromOperatingActivities,jdbcType=DECIMAL},
+      cash_flow_from_investment_activities = #{cashFlowFromInvestmentActivities,jdbcType=DECIMAL},
+      cash_received_from_investment_recovery = #{cashReceivedFromInvestmentRecovery,jdbcType=DECIMAL},
+      cash_received_from_investment_income = #{cashReceivedFromInvestmentIncome,jdbcType=DECIMAL},
+      net_cash_from_disposal_fixed_assets = #{netCashFromDisposalFixedAssets,jdbcType=DECIMAL},
+      net_cash_from_disposal_other_business_units = #{netCashFromDisposalOtherBusinessUnits,jdbcType=DECIMAL},
+      other_cash_received_related_to_investment = #{otherCashReceivedRelatedToInvestment,jdbcType=DECIMAL},
+      subtotal_of_cash_inflow_from_investment = #{subtotalOfCashInflowFromInvestment,jdbcType=DECIMAL},
+      cash_paid_for_purchase_fixed_assets = #{cashPaidForPurchaseFixedAssets,jdbcType=DECIMAL},
+      cash_paid_for_investment = #{cashPaidForInvestment,jdbcType=DECIMAL},
+      obtain_net_cash_paid_by_other_business_units = #{obtainNetCashPaidByOtherBusinessUnits,jdbcType=DECIMAL},
+      other_cash_paid_related_to_investment = #{otherCashPaidRelatedToInvestment,jdbcType=DECIMAL},
+      subtotal_of_cash_outflows_from_investment = #{subtotalOfCashOutflowsFromInvestment,jdbcType=DECIMAL},
+      net_cash_flows_from_investing_activities = #{netCashFlowsFromInvestingActivities,jdbcType=DECIMAL},
+      cash_flow_from_financing_activities = #{cashFlowFromFinancingActivities,jdbcType=DECIMAL},
+      absorb_cash_received_from_investment = #{absorbCashReceivedFromInvestment,jdbcType=DECIMAL},
+      cash_received_from_minority = #{cashReceivedFromMinority,jdbcType=DECIMAL},
+      obtain_the_cash_received_from_the_loan = #{obtainTheCashReceivedFromTheLoan,jdbcType=DECIMAL},
+      cash_received_from_issuing_bonds = #{cashReceivedFromIssuingBonds,jdbcType=DECIMAL},
+      receive_other_cash_related_to_financing = #{receiveOtherCashRelatedToFinancing,jdbcType=DECIMAL},
+      subtotal_of_cash_inflows_from_financing = #{subtotalOfCashInflowsFromFinancing,jdbcType=DECIMAL},
+      cash_paid_for_debt_repayment = #{cashPaidForDebtRepayment,jdbcType=DECIMAL},
+      cash_paid_for_dividends_profitsr_interest_payments = #{cashPaidForDividendsProfitsrInterestPayments,jdbcType=DECIMAL},
+      dividends_profits_paid_to_minority_shareholders = #{dividendsProfitsPaidToMinorityShareholders,jdbcType=DECIMAL},
+      payment_of_other_cash_related_financing = #{paymentOfOtherCashRelatedFinancing,jdbcType=DECIMAL},
+      subtotal_of_cash_outflows_from_financing = #{subtotalOfCashOutflowsFromFinancing,jdbcType=DECIMAL},
+      net_cash_flow_from_financing_activities = #{netCashFlowFromFinancingActivities,jdbcType=DECIMAL},
+      impact_of_exchange_rate_changes = #{impactOfExchangeRateChanges,jdbcType=DECIMAL},
+      net_increase_in_cash_and_cash_equivalents = #{netIncreaseInCashAndCashEquivalents,jdbcType=DECIMAL},
+      cash_and_cash_equivalents_at_beginning = #{cashAndCashEquivalentsAtBeginning,jdbcType=DECIMAL},
+      cash_and_cash_equivalents_at_end = #{cashAndCashEquivalentsAtEnd,jdbcType=DECIMAL},
+      notes = #{notes,jdbcType=DECIMAL},
+      net_profit = #{netProfit,jdbcType=DECIMAL},
+      minority_interest = #{minorityInterest,jdbcType=DECIMAL},
+      unrecognized_investment_losses = #{unrecognizedInvestmentLosses,jdbcType=DECIMAL},
+      impairment_of_assets = #{impairmentOfAssets,jdbcType=DECIMAL},
+      depreciation_of__assets = #{depreciationOfAssets,jdbcType=DECIMAL},
+      amortization_of_intangible_assets = #{amortizationOfIntangibleAssets,jdbcType=DECIMAL},
+      amortization_of_long_term_deferred_expenses = #{amortizationOfLongTermDeferredExpenses,jdbcType=DECIMAL},
+      decrease_in_deferred_expenses = #{decreaseInDeferredExpenses,jdbcType=DECIMAL},
+      increase_in_accrued_expenses = #{increaseInAccruedExpenses,jdbcType=DECIMAL},
+      disposal_fixed_intangible_long_term_assets = #{disposalFixedIntangibleLongTermAssets,jdbcType=DECIMAL},
+      fixed_asset_retirement_loss = #{fixedAssetRetirementLoss,jdbcType=DECIMAL},
+      loss_from_changes_in_fair_value = #{lossFromChangesInFairValue,jdbcType=DECIMAL},
+      deferred_income_increases = #{deferredIncomeIncreases,jdbcType=DECIMAL},
+      estimated_liabilities = #{estimatedLiabilities,jdbcType=DECIMAL},
+      financial_expenses = #{financialExpenses,jdbcType=DECIMAL},
+      investment_loss = #{investmentLoss,jdbcType=DECIMAL},
+      decrease_in_deferred_income_tax_assets = #{decreaseInDeferredIncomeTaxAssets,jdbcType=DECIMAL},
+      increase_in_deferred_income_tax_liabilities = #{increaseInDeferredIncomeTaxLiabilities,jdbcType=DECIMAL},
+      inventory_reduction = #{inventoryReduction,jdbcType=DECIMAL},
+      decrease_of_operating_receivables = #{decreaseOfOperatingReceivables,jdbcType=DECIMAL},
+      increase_in_operational_payable_items = #{increaseInOperationalPayableItems,jdbcType=DECIMAL},
+      decrease_completed_and_unsettled_payments = #{decreaseCompletedAndUnsettledPayments,jdbcType=DECIMAL},
+      increase_settled_outstanding_work = #{increaseSettledOutstandingWork,jdbcType=DECIMAL},
+      other = #{other,jdbcType=DECIMAL},
+      other_net_cash_flow_from_operating_activities = #{otherNetCashFlowFromOperatingActivities,jdbcType=DECIMAL},
+      conversion_of_debt_into_capital = #{conversionOfDebtIntoCapital,jdbcType=DECIMAL},
+      convertible_bonds_within_one_year = #{convertibleBondsWithinOneYear,jdbcType=DECIMAL},
+      financing_leased_fixed_assets = #{financingLeasedFixedAssets,jdbcType=DECIMAL},
+      cash_ending_balance = #{cashEndingBalance,jdbcType=DECIMAL},
+      opening_balance_of_cash = #{openingBalanceOfCash,jdbcType=DECIMAL},
+      closing_balance_of_cash_equivalents = #{closingBalanceOfCashEquivalents,jdbcType=DECIMAL},
+      opening_balance_of_cash_equivalents = #{openingBalanceOfCashEquivalents,jdbcType=DECIMAL},
+      net_increase_cash_and_equivalents = #{netIncreaseCashAndEquivalents,jdbcType=DECIMAL}
+    where no = #{no,jdbcType=INTEGER}
+  </update>
+  <select id="selectByStockIdAndReportDate" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List"/>
+    from cash_flow
+    where stock_id = #{stockId,jdbcType=VARCHAR}
+    and
+    report_date = #{reportDate,jdbcType=DATE}
+  </select>
+</mapper>

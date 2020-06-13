@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gegaofeng.stock.mapper.ProfitMapper">
+    <resultMap id="BaseResultMap" type="com.gegaofeng.stock.model.Profit">
+        <id column="no" property="no" jdbcType="INTEGER"/>
+        <result column="stock_id" property="stockId" jdbcType="VARCHAR"/>
+        <result column="update_date" property="updateDate" jdbcType="TIMESTAMP"/>
+        <result column="report_type" property="reportType" jdbcType="TINYINT"/>
+        <result column="report_date" property="reportDate" jdbcType="DATE"/>
+        <result column="unit" property="unit" jdbcType="VARCHAR"/>
+        <result column="total_operating_income" property="totalOperatingIncome" jdbcType="DECIMAL"/>
+        <result column="operating_income" property="operatingIncome" jdbcType="DECIMAL"/>
+        <result column="total_operating_cost" property="totalOperatingCost" jdbcType="DECIMAL"/>
+        <result column="operating_cost" property="operatingCost" jdbcType="DECIMAL"/>
+        <result column="business_tax_surcharges" property="businessTaxSurcharges" jdbcType="DECIMAL"/>
+        <result column="sales_expense" property="salesExpense" jdbcType="DECIMAL"/>
+        <result column="management_fees" property="managementFees" jdbcType="DECIMAL"/>
+        <result column="financial_expenses" property="financialExpenses" jdbcType="DECIMAL"/>
+        <result column="r_d_expenses" property="rDExpenses" jdbcType="DECIMAL"/>
+        <result column="asset_impairment_losses" property="assetImpairmentLosses" jdbcType="DECIMAL"/>
+        <result column="gains_changes_in_fair_value" property="gainsChangesInFairValue" jdbcType="DECIMAL"/>
+        <result column="investment_income" property="investmentIncome" jdbcType="DECIMAL"/>
+        <result column="investment_income_associates_joint" property="investmentIncomeAssociatesJoint"
+                jdbcType="DECIMAL"/>
+        <result column="exchange_gains" property="exchangeGains" jdbcType="DECIMAL"/>
+        <result column="operating_profit" property="operatingProfit" jdbcType="DECIMAL"/>
+        <result column="non_operating_income" property="nonOperatingIncome" jdbcType="DECIMAL"/>
+        <result column="non_operating_expenses" property="nonOperatingExpenses" jdbcType="DECIMAL"/>
+        <result column="loss_non_current_assets" property="lossNonCurrentAssets" jdbcType="DECIMAL"/>
+        <result column="total_profit" property="totalProfit" jdbcType="DECIMAL"/>
+        <result column="income_tax_expense" property="incomeTaxExpense" jdbcType="DECIMAL"/>
+        <result column="net_profit" property="netProfit" jdbcType="DECIMAL"/>
+        <result column="profits_to_owner" property="profitsToOwner" jdbcType="DECIMAL"/>
+        <result column="minority_gains_losses" property="minorityGainsLosses" jdbcType="DECIMAL"/>
+        <result column="earnings_per_share" property="earningsPerShare" jdbcType="DECIMAL"/>
+        <result column="basic_earnings_per_share" property="basicEarningsPerShare" jdbcType="DECIMAL"/>
+        <result column="diluted_earnings_per_share" property="dilutedEarningsPerShare" jdbcType="DECIMAL"/>
+        <result column="other_comprehensive_income" property="otherComprehensiveIncome" jdbcType="DECIMAL"/>
+        <result column="total_comprehensive_income" property="totalComprehensiveIncome" jdbcType="DECIMAL"/>
+        <result column="total_income_to_owners" property="totalIncomeToOwners" jdbcType="DECIMAL"/>
+        <result column="total_income_minority" property="totalIncomeMinority" jdbcType="DECIMAL"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    no, stock_id, update_date, report_type, report_date, unit, total_operating_income, operating_income,
+    total_operating_cost, operating_cost, business_tax_surcharges, sales_expense, management_fees, 
+    financial_expenses, r_d_expenses, asset_impairment_losses, gains_changes_in_fair_value, 
+    investment_income, investment_income_associates_joint, exchange_gains, operating_profit, 
+    non_operating_income, non_operating_expenses, loss_non_current_assets, total_profit, 
+    income_tax_expense, net_profit, profits_to_owner, minority_gains_losses, earnings_per_share, 
+    basic_earnings_per_share, diluted_earnings_per_share, other_comprehensive_income, 
+    total_comprehensive_income, total_income_to_owners, total_income_minority
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from profit
+        where no = #{no,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from profit
+    where no = #{no,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.gegaofeng.stock.model.Profit">
+    insert into profit (no, stock_id, update_date, 
+      reportt_type, report_date, unit, total_operating_income,
+      operating_income, total_operating_cost, operating_cost, 
+      business_tax_surcharges, sales_expense, management_fees, 
+      financial_expenses, r_d_expenses, asset_impairment_losses, 
+      gains_changes_in_fair_value, investment_income, 
+      investment_income_associates_joint, exchange_gains, 
+      operating_profit, non_operating_income, non_operating_expenses, 
+      loss_non_current_assets, total_profit, income_tax_expense, 
+      net_profit, profits_to_owner, minority_gains_losses, 
+      earnings_per_share, basic_earnings_per_share, 
+      diluted_earnings_per_share, other_comprehensive_income, 
+      total_comprehensive_income, total_income_to_owners, 
+      total_income_minority)
+    values (#{no,jdbcType=INTEGER}, #{stockId,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{reportType,jdbcType=TINYINT} , #{reportDate,jdbcType=DATE}, #{unit,jdbcType=VARCHAR}, #{totalOperatingIncome,jdbcType=DECIMAL},
+      #{operatingIncome,jdbcType=DECIMAL}, #{totalOperatingCost,jdbcType=DECIMAL}, #{operatingCost,jdbcType=DECIMAL}, 
+      #{businessTaxSurcharges,jdbcType=DECIMAL}, #{salesExpense,jdbcType=DECIMAL}, #{managementFees,jdbcType=DECIMAL}, 
+      #{financialExpenses,jdbcType=DECIMAL}, #{rDExpenses,jdbcType=DECIMAL}, #{assetImpairmentLosses,jdbcType=DECIMAL}, 
+      #{gainsChangesInFairValue,jdbcType=DECIMAL}, #{investmentIncome,jdbcType=DECIMAL}, 
+      #{investmentIncomeAssociatesJoint,jdbcType=DECIMAL}, #{exchangeGains,jdbcType=DECIMAL}, 
+      #{operatingProfit,jdbcType=DECIMAL}, #{nonOperatingIncome,jdbcType=DECIMAL}, #{nonOperatingExpenses,jdbcType=DECIMAL}, 
+      #{lossNonCurrentAssets,jdbcType=DECIMAL}, #{totalProfit,jdbcType=DECIMAL}, #{incomeTaxExpense,jdbcType=DECIMAL}, 
+      #{netProfit,jdbcType=DECIMAL}, #{profitsToOwner,jdbcType=DECIMAL}, #{minorityGainsLosses,jdbcType=DECIMAL}, 
+      #{earningsPerShare,jdbcType=DECIMAL}, #{basicEarningsPerShare,jdbcType=DECIMAL}, 
+      #{dilutedEarningsPerShare,jdbcType=DECIMAL}, #{otherComprehensiveIncome,jdbcType=DECIMAL}, 
+      #{totalComprehensiveIncome,jdbcType=DECIMAL}, #{totalIncomeToOwners,jdbcType=DECIMAL}, 
+      #{totalIncomeMinority,jdbcType=DECIMAL})
+  </insert>
+    <insert id="insertSelective" parameterType="com.gegaofeng.stock.model.Profit">
+        insert into profit
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="no != null">
+                no,
+            </if>
+            <if test="stockId != null">
+                stock_id,
+            </if>
+            <if test="updateDate != null">
+                update_date,
+            </if>
+            <if test="reportType !=null">
+                report_type,
+            </if>
+            <if test="reportDate != null">
+                report_date,
+            </if>
+            <if test="unit != null">
+                unit,
+            </if>
+            <if test="totalOperatingIncome != null">
+                total_operating_income,
+            </if>
+            <if test="operatingIncome != null">
+                operating_income,
+            </if>
+            <if test="totalOperatingCost != null">
+                total_operating_cost,
+            </if>
+            <if test="operatingCost != null">
+                operating_cost,
+            </if>
+            <if test="businessTaxSurcharges != null">
+                business_tax_surcharges,
+            </if>
+            <if test="salesExpense != null">
+                sales_expense,
+            </if>
+            <if test="managementFees != null">
+                management_fees,
+            </if>
+            <if test="financialExpenses != null">
+                financial_expenses,
+            </if>
+            <if test="rDExpenses != null">
+                r_d_expenses,
+            </if>
+            <if test="assetImpairmentLosses != null">
+                asset_impairment_losses,
+            </if>
+            <if test="gainsChangesInFairValue != null">
+                gains_changes_in_fair_value,
+            </if>
+            <if test="investmentIncome != null">
+                investment_income,
+            </if>
+            <if test="investmentIncomeAssociatesJoint != null">
+                investment_income_associates_joint,
+            </if>
+            <if test="exchangeGains != null">
+                exchange_gains,
+            </if>
+            <if test="operatingProfit != null">
+                operating_profit,
+            </if>
+            <if test="nonOperatingIncome != null">
+                non_operating_income,
+            </if>
+            <if test="nonOperatingExpenses != null">
+                non_operating_expenses,
+            </if>
+            <if test="lossNonCurrentAssets != null">
+                loss_non_current_assets,
+            </if>
+            <if test="totalProfit != null">
+                total_profit,
+            </if>
+            <if test="incomeTaxExpense != null">
+                income_tax_expense,
+            </if>
+            <if test="netProfit != null">
+                net_profit,
+            </if>
+            <if test="profitsToOwner != null">
+                profits_to_owner,
+            </if>
+            <if test="minorityGainsLosses != null">
+                minority_gains_losses,
+            </if>
+            <if test="earningsPerShare != null">
+                earnings_per_share,
+            </if>
+            <if test="basicEarningsPerShare != null">
+                basic_earnings_per_share,
+            </if>
+            <if test="dilutedEarningsPerShare != null">
+                diluted_earnings_per_share,
+            </if>
+            <if test="otherComprehensiveIncome != null">
+                other_comprehensive_income,
+            </if>
+            <if test="totalComprehensiveIncome != null">
+                total_comprehensive_income,
+            </if>
+            <if test="totalIncomeToOwners != null">
+                total_income_to_owners,
+            </if>
+            <if test="totalIncomeMinority != null">
+                total_income_minority,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="no != null">
+                #{no,jdbcType=INTEGER},
+            </if>
+            <if test="stockId != null">
+                #{stockId,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="reportType != null">
+                #{reportType,jdbcType=TINYINT} ,
+            </if>
+            <if test="reportDate != null">
+                #{reportDate,jdbcType=DATE},
+            </if>
+            <if test="unit != null">
+                #{unit,jdbcType=VARCHAR},
+            </if>
+            <if test="totalOperatingIncome != null">
+                #{totalOperatingIncome,jdbcType=DECIMAL},
+            </if>
+            <if test="operatingIncome != null">
+                #{operatingIncome,jdbcType=DECIMAL},
+            </if>
+            <if test="totalOperatingCost != null">
+                #{totalOperatingCost,jdbcType=DECIMAL},
+            </if>
+            <if test="operatingCost != null">
+                #{operatingCost,jdbcType=DECIMAL},
+            </if>
+            <if test="businessTaxSurcharges != null">
+                #{businessTaxSurcharges,jdbcType=DECIMAL},
+            </if>
+            <if test="salesExpense != null">
+                #{salesExpense,jdbcType=DECIMAL},
+            </if>
+            <if test="managementFees != null">
+                #{managementFees,jdbcType=DECIMAL},
+            </if>
+            <if test="financialExpenses != null">
+                #{financialExpenses,jdbcType=DECIMAL},
+            </if>
+            <if test="rDExpenses != null">
+                #{rDExpenses,jdbcType=DECIMAL},
+            </if>
+            <if test="assetImpairmentLosses != null">
+                #{assetImpairmentLosses,jdbcType=DECIMAL},
+            </if>
+            <if test="gainsChangesInFairValue != null">
+                #{gainsChangesInFairValue,jdbcType=DECIMAL},
+            </if>
+            <if test="investmentIncome != null">
+                #{investmentIncome,jdbcType=DECIMAL},
+            </if>
+            <if test="investmentIncomeAssociatesJoint != null">
+                #{investmentIncomeAssociatesJoint,jdbcType=DECIMAL},
+            </if>
+            <if test="exchangeGains != null">
+                #{exchangeGains,jdbcType=DECIMAL},
+            </if>
+            <if test="operatingProfit != null">
+                #{operatingProfit,jdbcType=DECIMAL},
+            </if>
+            <if test="nonOperatingIncome != null">
+                #{nonOperatingIncome,jdbcType=DECIMAL},
+            </if>
+            <if test="nonOperatingExpenses != null">
+                #{nonOperatingExpenses,jdbcType=DECIMAL},
+            </if>
+            <if test="lossNonCurrentAssets != null">
+                #{lossNonCurrentAssets,jdbcType=DECIMAL},
+            </if>
+            <if test="totalProfit != null">
+                #{totalProfit,jdbcType=DECIMAL},
+            </if>
+            <if test="incomeTaxExpense != null">
+                #{incomeTaxExpense,jdbcType=DECIMAL},
+            </if>
+            <if test="netProfit != null">
+                #{netProfit,jdbcType=DECIMAL},
+            </if>
+            <if test="profitsToOwner != null">
+                #{profitsToOwner,jdbcType=DECIMAL},
+            </if>
+            <if test="minorityGainsLosses != null">
+                #{minorityGainsLosses,jdbcType=DECIMAL},
+            </if>
+            <if test="earningsPerShare != null">
+                #{earningsPerShare,jdbcType=DECIMAL},
+            </if>
+            <if test="basicEarningsPerShare != null">
+                #{basicEarningsPerShare,jdbcType=DECIMAL},
+            </if>
+            <if test="dilutedEarningsPerShare != null">
+                #{dilutedEarningsPerShare,jdbcType=DECIMAL},
+            </if>
+            <if test="otherComprehensiveIncome != null">
+                #{otherComprehensiveIncome,jdbcType=DECIMAL},
+            </if>
+            <if test="totalComprehensiveIncome != null">
+                #{totalComprehensiveIncome,jdbcType=DECIMAL},
+            </if>
+            <if test="totalIncomeToOwners != null">
+                #{totalIncomeToOwners,jdbcType=DECIMAL},
+            </if>
+            <if test="totalIncomeMinority != null">
+                #{totalIncomeMinority,jdbcType=DECIMAL},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.gegaofeng.stock.model.Profit">
+        update profit
+        <set>
+            <if test="stockId != null">
+                stock_id = #{stockId,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="reportType != null">
+                report_type = #{reportType,jdbcType=TINYINT},
+            </if>
+            <if test="reportDate != null">
+                report_date = #{reportDate,jdbcType=DATE},
+            </if>
+            <if test="unit != null">
+                unit = #{unit,jdbcType=VARCHAR},
+            </if>
+            <if test="totalOperatingIncome != null">
+                total_operating_income = #{totalOperatingIncome,jdbcType=DECIMAL},
+            </if>
+            <if test="operatingIncome != null">
+                operating_income = #{operatingIncome,jdbcType=DECIMAL},
+            </if>
+            <if test="totalOperatingCost != null">
+                total_operating_cost = #{totalOperatingCost,jdbcType=DECIMAL},
+            </if>
+            <if test="operatingCost != null">
+                operating_cost = #{operatingCost,jdbcType=DECIMAL},
+            </if>
+            <if test="businessTaxSurcharges != null">
+                business_tax_surcharges = #{businessTaxSurcharges,jdbcType=DECIMAL},
+            </if>
+            <if test="salesExpense != null">
+                sales_expense = #{salesExpense,jdbcType=DECIMAL},
+            </if>
+            <if test="managementFees != null">
+                management_fees = #{managementFees,jdbcType=DECIMAL},
+            </if>
+            <if test="financialExpenses != null">
+                financial_expenses = #{financialExpenses,jdbcType=DECIMAL},
+            </if>
+            <if test="rDExpenses != null">
+                r_d_expenses = #{rDExpenses,jdbcType=DECIMAL},
+            </if>
+            <if test="assetImpairmentLosses != null">
+                asset_impairment_losses = #{assetImpairmentLosses,jdbcType=DECIMAL},
+            </if>
+            <if test="gainsChangesInFairValue != null">
+                gains_changes_in_fair_value = #{gainsChangesInFairValue,jdbcType=DECIMAL},
+            </if>
+            <if test="investmentIncome != null">
+                investment_income = #{investmentIncome,jdbcType=DECIMAL},
+            </if>
+            <if test="investmentIncomeAssociatesJoint != null">
+                investment_income_associates_joint = #{investmentIncomeAssociatesJoint,jdbcType=DECIMAL},
+            </if>
+            <if test="exchangeGains != null">
+                exchange_gains = #{exchangeGains,jdbcType=DECIMAL},
+            </if>
+            <if test="operatingProfit != null">
+                operating_profit = #{operatingProfit,jdbcType=DECIMAL},
+            </if>
+            <if test="nonOperatingIncome != null">
+                non_operating_income = #{nonOperatingIncome,jdbcType=DECIMAL},
+            </if>
+            <if test="nonOperatingExpenses != null">
+                non_operating_expenses = #{nonOperatingExpenses,jdbcType=DECIMAL},
+            </if>
+            <if test="lossNonCurrentAssets != null">
+                loss_non_current_assets = #{lossNonCurrentAssets,jdbcType=DECIMAL},
+            </if>
+            <if test="totalProfit != null">
+                total_profit = #{totalProfit,jdbcType=DECIMAL},
+            </if>
+            <if test="incomeTaxExpense != null">
+                income_tax_expense = #{incomeTaxExpense,jdbcType=DECIMAL},
+            </if>
+            <if test="netProfit != null">
+                net_profit = #{netProfit,jdbcType=DECIMAL},
+            </if>
+            <if test="profitsToOwner != null">
+                profits_to_owner = #{profitsToOwner,jdbcType=DECIMAL},
+            </if>
+            <if test="minorityGainsLosses != null">
+                minority_gains_losses = #{minorityGainsLosses,jdbcType=DECIMAL},
+            </if>
+            <if test="earningsPerShare != null">
+                earnings_per_share = #{earningsPerShare,jdbcType=DECIMAL},
+            </if>
+            <if test="basicEarningsPerShare != null">
+                basic_earnings_per_share = #{basicEarningsPerShare,jdbcType=DECIMAL},
+            </if>
+            <if test="dilutedEarningsPerShare != null">
+                diluted_earnings_per_share = #{dilutedEarningsPerShare,jdbcType=DECIMAL},
+            </if>
+            <if test="otherComprehensiveIncome != null">
+                other_comprehensive_income = #{otherComprehensiveIncome,jdbcType=DECIMAL},
+            </if>
+            <if test="totalComprehensiveIncome != null">
+                total_comprehensive_income = #{totalComprehensiveIncome,jdbcType=DECIMAL},
+            </if>
+            <if test="totalIncomeToOwners != null">
+                total_income_to_owners = #{totalIncomeToOwners,jdbcType=DECIMAL},
+            </if>
+            <if test="totalIncomeMinority != null">
+                total_income_minority = #{totalIncomeMinority,jdbcType=DECIMAL},
+            </if>
+        </set>
+        where no = #{no,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.gegaofeng.stock.model.Profit">
+    update profit
+    set stock_id = #{stockId,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      report_type = #{reportType,jdbcType=TINYINT},
+      report_date = #{reportDate,jdbcType=DATE},
+      unit = #{unit,jdbcType=VARCHAR},
+      total_operating_income = #{totalOperatingIncome,jdbcType=DECIMAL},
+      operating_income = #{operatingIncome,jdbcType=DECIMAL},
+      total_operating_cost = #{totalOperatingCost,jdbcType=DECIMAL},
+      operating_cost = #{operatingCost,jdbcType=DECIMAL},
+      business_tax_surcharges = #{businessTaxSurcharges,jdbcType=DECIMAL},
+      sales_expense = #{salesExpense,jdbcType=DECIMAL},
+      management_fees = #{managementFees,jdbcType=DECIMAL},
+      financial_expenses = #{financialExpenses,jdbcType=DECIMAL},
+      r_d_expenses = #{rDExpenses,jdbcType=DECIMAL},
+      asset_impairment_losses = #{assetImpairmentLosses,jdbcType=DECIMAL},
+      gains_changes_in_fair_value = #{gainsChangesInFairValue,jdbcType=DECIMAL},
+      investment_income = #{investmentIncome,jdbcType=DECIMAL},
+      investment_income_associates_joint = #{investmentIncomeAssociatesJoint,jdbcType=DECIMAL},
+      exchange_gains = #{exchangeGains,jdbcType=DECIMAL},
+      operating_profit = #{operatingProfit,jdbcType=DECIMAL},
+      non_operating_income = #{nonOperatingIncome,jdbcType=DECIMAL},
+      non_operating_expenses = #{nonOperatingExpenses,jdbcType=DECIMAL},
+      loss_non_current_assets = #{lossNonCurrentAssets,jdbcType=DECIMAL},
+      total_profit = #{totalProfit,jdbcType=DECIMAL},
+      income_tax_expense = #{incomeTaxExpense,jdbcType=DECIMAL},
+      net_profit = #{netProfit,jdbcType=DECIMAL},
+      profits_to_owner = #{profitsToOwner,jdbcType=DECIMAL},
+      minority_gains_losses = #{minorityGainsLosses,jdbcType=DECIMAL},
+      earnings_per_share = #{earningsPerShare,jdbcType=DECIMAL},
+      basic_earnings_per_share = #{basicEarningsPerShare,jdbcType=DECIMAL},
+      diluted_earnings_per_share = #{dilutedEarningsPerShare,jdbcType=DECIMAL},
+      other_comprehensive_income = #{otherComprehensiveIncome,jdbcType=DECIMAL},
+      total_comprehensive_income = #{totalComprehensiveIncome,jdbcType=DECIMAL},
+      total_income_to_owners = #{totalIncomeToOwners,jdbcType=DECIMAL},
+      total_income_minority = #{totalIncomeMinority,jdbcType=DECIMAL}
+    where no = #{no,jdbcType=INTEGER}
+  </update>
+
+    <select id="getProfitByStockId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from profit
+        where stock_id=#{stockId,jdbcType=VARCHAR}
+    </select>
+    <resultMap id="ProfitIncome" type="com.gegaofeng.stock.pojo.ProfitIncome">
+        <id column="no" property="no" jdbcType="INTEGER"/>
+        <result column="report_type" property="reportType" jdbcType="TINYINT"/>
+        <result column="report_date" property="reportDate" jdbcType="DATE"/>
+        <result column="stock_id" property="stockId" jdbcType="VARCHAR"/>
+        <result column="unit" property="unit" jdbcType="VARCHAR"/>
+        <result column="total_operating_income" property="totalOperatingIncome" jdbcType="DECIMAL"/>
+        <result column="total_profit" property="totalProfit" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Column_List">
+    no, stock_id, report_type, report_date, unit, total_operating_income,update_date,total_profit
+  </sql>
+
+    <select id="getIncomeByStockId" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from profit
+        where stock_id = #{stockId,jdbcType=VARCHAR}
+        and
+        report_date &gt; #{startTime,jdbcType=DATE}
+        and
+        report_date &lt; #{endTime,jdbcType=DATE}
+        order by report_date
+    </select>
+    <select id="selectByStockIdAndReportDate" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from profit
+        where stock_id = #{stockId,jdbcType=VARCHAR}
+        and
+        report_date = #{reportDate,jdbcType=DATE}
+    </select>
+</mapper>

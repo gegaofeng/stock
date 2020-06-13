@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gegaofeng.stock.mapper.StockMapper">
+    <resultMap id="BaseResultMap" type="com.gegaofeng.stock.model.Stock">
+        <id column="no" property="no" jdbcType="INTEGER"/>
+        <result column="code" property="code" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="ndustry" property="ndustry" jdbcType="TINYINT"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    no, code, name, ndustry
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from stock_list
+        where no = #{no,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from stock_list
+    where no = #{no,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.gegaofeng.stock.model.Stock">
+    insert into stock_list (no, code, name, 
+      ndustry)
+    values (#{no,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{ndustry,jdbcType=TINYINT})
+  </insert>
+    <insert id="insertSelective" parameterType="com.gegaofeng.stock.model.Stock">
+        insert into stock_list
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="no != null">
+                no,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="ndustry != null">
+                ndustry,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="no != null">
+                #{no,jdbcType=INTEGER},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="ndustry != null">
+                #{ndustry,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.gegaofeng.stock.model.Stock">
+        update stock_list
+        <set>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="ndustry != null">
+                ndustry = #{ndustry,jdbcType=TINYINT},
+            </if>
+        </set>
+        where no = #{no,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.gegaofeng.stock.model.Stock">
+    update stock_list
+    set code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      ndustry = #{ndustry,jdbcType=TINYINT}
+    where no = #{no,jdbcType=INTEGER}
+  </update>
+    <select id="getStockListByName" resultType="com.gegaofeng.stock.model.Stock">
+      select
+      <include refid="Base_Column_List"/>
+      from stock_list
+        where name like #{name,jdbcType=VARCHAR}
+  </select>
+    <select id="getStockListPage" resultType="com.gegaofeng.stock.model.Stock">
+        select
+        <include refid="Base_Column_List"/>
+        from stock_list
+    </select>
+</mapper>

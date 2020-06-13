@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gegaofeng.stock.mapper.CalculationGuideLineMapper" >
+  <resultMap id="BaseResultMap" type="com.gegaofeng.stock.model.CalculationGuideLine" >
+    <id column="no" property="no" jdbcType="INTEGER" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="stock_id" property="stockId" jdbcType="VARCHAR" />
+    <result column="report_type" property="reportType" jdbcType="TINYINT" />
+    <result column="report_date" property="reportDate" jdbcType="DATE" />
+    <result column="gross_margin" property="grossMargin" jdbcType="DECIMAL" />
+    <result column="net_interest_rate" property="netInterestRate" jdbcType="DECIMAL" />
+    <result column="core_profit_margin" property="coreProfitMargin" jdbcType="DECIMAL" />
+    <result column="core_profit" property="coreProfit" jdbcType="DECIMAL" />
+    <result column="roe" property="roe" jdbcType="DECIMAL" />
+    <result column="return_on_total_assets" property="returnOnTotalAssets" jdbcType="DECIMAL" />
+    <result column="assets_and_liabilities" property="assetsAndLiabilities" jdbcType="DECIMAL" />
+    <result column="dividend_yield" property="dividendYield" jdbcType="DECIMAL" />
+    <result column="pe_ratio_pe" property="peRatioPe" jdbcType="DECIMAL" />
+    <result column="pb" property="pb" jdbcType="DECIMAL" />
+    <result column="ps_ratio" property="psRatio" jdbcType="DECIMAL" />
+    <result column="pcf" property="pcf" jdbcType="DECIMAL" />
+    <result column="quick_ratio" property="quickRatio" jdbcType="DECIMAL" />
+    <result column="current_ratio" property="currentRatio" jdbcType="DECIMAL" />
+    <result column="long_term_debt_to_equity_ratio" property="longTermDebtToEquityRatio" jdbcType="DECIMAL" />
+    <result column="cash_ratio" property="cashRatio" jdbcType="DECIMAL" />
+    <result column="earned_interest_multiple" property="earnedInterestMultiple" jdbcType="DECIMAL" />
+    <result column="shareholders_equity_ratio" property="shareholdersEquityRatio" jdbcType="DECIMAL" />
+    <result column="debt_to_owner_equity_ratio" property="debtToOwnerEquityRatio" jdbcType="DECIMAL" />
+    <result column="capital_fixed_ratio" property="capitalFixedRatio" jdbcType="DECIMAL" />
+    <result column="accounts_receivable_turnover_ratio" property="accountsReceivableTurnoverRatio" jdbcType="DECIMAL" />
+    <result column="days_receivable" property="daysReceivable" jdbcType="DECIMAL" />
+    <result column="inventory_turnover" property="inventoryTurnover" jdbcType="DECIMAL" />
+    <result column="inventory_days" property="inventoryDays" jdbcType="DECIMAL" />
+    <result column="accounts_payable_turnover_rate" property="accountsPayableTurnoverRate" jdbcType="DECIMAL" />
+    <result column="days_payable" property="daysPayable" jdbcType="DECIMAL" />
+    <result column="cash_turnover_days" property="cashTurnoverDays" jdbcType="DECIMAL" />
+    <result column="turnover_rate_of_current_assets" property="turnoverRateOfCurrentAssets" jdbcType="DECIMAL" />
+    <result column="turnover_of_total_assets" property="turnoverOfTotalAssets" jdbcType="DECIMAL" />
+    <result column="sales_cash_ratio" property="salesCashRatio" jdbcType="DECIMAL" />
+    <result column="net_profit_cash_content" property="netProfitCashContent" jdbcType="DECIMAL" />
+    <result column="cash_management_index" property="cashManagementIndex" jdbcType="DECIMAL" />
+    <result column="cash_satisfaction_ratio" property="cashSatisfactionRatio" jdbcType="DECIMAL" />
+    <result column="net_cash_flow_growth_rate" property="netCashFlowGrowthRate" jdbcType="DECIMAL" />
+    <result column="selling_expense_ratio" property="sellingExpenseRatio" jdbcType="DECIMAL" />
+    <result column="management_expense_ratio" property="managementExpenseRatio" jdbcType="DECIMAL" />
+    <result column="core_profit_generating_cash_flow_capability" property="coreProfitGeneratingCashFlowCapability" jdbcType="DECIMAL" />
+    <result column="return_on_operating_assets" property="returnOnOperatingAssets" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    no, update_date, stock_id, report_type, report_date, gross_margin, net_interest_rate, 
+    core_profit_margin, core_profit, roe, return_on_total_assets, assets_and_liabilities, 
+    dividend_yield, pe_ratio_pe, pb, ps_ratio, pcf, quick_ratio, current_ratio, long_term_debt_to_equity_ratio, 
+    cash_ratio, earned_interest_multiple, shareholders_equity_ratio, debt_to_owner_equity_ratio, 
+    capital_fixed_ratio, accounts_receivable_turnover_ratio, days_receivable, inventory_turnover, 
+    inventory_days, accounts_payable_turnover_rate, days_payable, cash_turnover_days, 
+    turnover_rate_of_current_assets, turnover_of_total_assets, sales_cash_ratio, net_profit_cash_content, 
+    cash_management_index, cash_satisfaction_ratio, net_cash_flow_growth_rate, selling_expense_ratio, 
+    management_expense_ratio, core_profit_generating_cash_flow_capability, return_on_operating_assets
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from calculation_guide_line
+    where no = #{no,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from calculation_guide_line
+    where no = #{no,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gegaofeng.stock.model.CalculationGuideLine" >
+    insert into calculation_guide_line (no, update_date, stock_id, 
+      report_type, report_date, gross_margin, 
+      net_interest_rate, core_profit_margin, core_profit, 
+      roe, return_on_total_assets, assets_and_liabilities, 
+      dividend_yield, pe_ratio_pe, pb, 
+      ps_ratio, pcf, quick_ratio, 
+      current_ratio, long_term_debt_to_equity_ratio, 
+      cash_ratio, earned_interest_multiple, shareholders_equity_ratio, 
+      debt_to_owner_equity_ratio, capital_fixed_ratio, 
+      accounts_receivable_turnover_ratio, days_receivable, 
+      inventory_turnover, inventory_days, accounts_payable_turnover_rate, 
+      days_payable, cash_turnover_days, turnover_rate_of_current_assets, 
+      turnover_of_total_assets, sales_cash_ratio, 
+      net_profit_cash_content, cash_management_index, 
+      cash_satisfaction_ratio, net_cash_flow_growth_rate, 
+      selling_expense_ratio, management_expense_ratio, 
+      core_profit_generating_cash_flow_capability, return_on_operating_assets
+      )
+    values (#{no,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP}, #{stockId,jdbcType=VARCHAR}, 
+      #{reportType,jdbcType=TINYINT}, #{reportDate,jdbcType=DATE}, #{grossMargin,jdbcType=DECIMAL}, 
+      #{netInterestRate,jdbcType=DECIMAL}, #{coreProfitMargin,jdbcType=DECIMAL}, #{coreProfit,jdbcType=DECIMAL}, 
+      #{roe,jdbcType=DECIMAL}, #{returnOnTotalAssets,jdbcType=DECIMAL}, #{assetsAndLiabilities,jdbcType=DECIMAL}, 
+      #{dividendYield,jdbcType=DECIMAL}, #{peRatioPe,jdbcType=DECIMAL}, #{pb,jdbcType=DECIMAL}, 
+      #{psRatio,jdbcType=DECIMAL}, #{pcf,jdbcType=DECIMAL}, #{quickRatio,jdbcType=DECIMAL}, 
+      #{currentRatio,jdbcType=DECIMAL}, #{longTermDebtToEquityRatio,jdbcType=DECIMAL}, 
+      #{cashRatio,jdbcType=DECIMAL}, #{earnedInterestMultiple,jdbcType=DECIMAL}, #{shareholdersEquityRatio,jdbcType=DECIMAL}, 
+      #{debtToOwnerEquityRatio,jdbcType=DECIMAL}, #{capitalFixedRatio,jdbcType=DECIMAL}, 
+      #{accountsReceivableTurnoverRatio,jdbcType=DECIMAL}, #{daysReceivable,jdbcType=DECIMAL}, 
+      #{inventoryTurnover,jdbcType=DECIMAL}, #{inventoryDays,jdbcType=DECIMAL}, #{accountsPayableTurnoverRate,jdbcType=DECIMAL}, 
+      #{daysPayable,jdbcType=DECIMAL}, #{cashTurnoverDays,jdbcType=DECIMAL}, #{turnoverRateOfCurrentAssets,jdbcType=DECIMAL}, 
+      #{turnoverOfTotalAssets,jdbcType=DECIMAL}, #{salesCashRatio,jdbcType=DECIMAL}, 
+      #{netProfitCashContent,jdbcType=DECIMAL}, #{cashManagementIndex,jdbcType=DECIMAL}, 
+      #{cashSatisfactionRatio,jdbcType=DECIMAL}, #{netCashFlowGrowthRate,jdbcType=DECIMAL}, 
+      #{sellingExpenseRatio,jdbcType=DECIMAL}, #{managementExpenseRatio,jdbcType=DECIMAL}, 
+      #{coreProfitGeneratingCashFlowCapability,jdbcType=DECIMAL}, #{returnOnOperatingAssets,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gegaofeng.stock.model.CalculationGuideLine" >
+    insert into calculation_guide_line
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="no != null" >
+        no,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="stockId != null" >
+        stock_id,
+      </if>
+      <if test="reportType != null" >
+        report_type,
+      </if>
+      <if test="reportDate != null" >
+        report_date,
+      </if>
+      <if test="grossMargin != null" >
+        gross_margin,
+      </if>
+      <if test="netInterestRate != null" >
+        net_interest_rate,
+      </if>
+      <if test="coreProfitMargin != null" >
+        core_profit_margin,
+      </if>
+      <if test="coreProfit != null" >
+        core_profit,
+      </if>
+      <if test="roe != null" >
+        roe,
+      </if>
+      <if test="returnOnTotalAssets != null" >
+        return_on_total_assets,
+      </if>
+      <if test="assetsAndLiabilities != null" >
+        assets_and_liabilities,
+      </if>
+      <if test="dividendYield != null" >
+        dividend_yield,
+      </if>
+      <if test="peRatioPe != null" >
+        pe_ratio_pe,
+      </if>
+      <if test="pb != null" >
+        pb,
+      </if>
+      <if test="psRatio != null" >
+        ps_ratio,
+      </if>
+      <if test="pcf != null" >
+        pcf,
+      </if>
+      <if test="quickRatio != null" >
+        quick_ratio,
+      </if>
+      <if test="currentRatio != null" >
+        current_ratio,
+      </if>
+      <if test="longTermDebtToEquityRatio != null" >
+        long_term_debt_to_equity_ratio,
+      </if>
+      <if test="cashRatio != null" >
+        cash_ratio,
+      </if>
+      <if test="earnedInterestMultiple != null" >
+        earned_interest_multiple,
+      </if>
+      <if test="shareholdersEquityRatio != null" >
+        shareholders_equity_ratio,
+      </if>
+      <if test="debtToOwnerEquityRatio != null" >
+        debt_to_owner_equity_ratio,
+      </if>
+      <if test="capitalFixedRatio != null" >
+        capital_fixed_ratio,
+      </if>
+      <if test="accountsReceivableTurnoverRatio != null" >
+        accounts_receivable_turnover_ratio,
+      </if>
+      <if test="daysReceivable != null" >
+        days_receivable,
+      </if>
+      <if test="inventoryTurnover != null" >
+        inventory_turnover,
+      </if>
+      <if test="inventoryDays != null" >
+        inventory_days,
+      </if>
+      <if test="accountsPayableTurnoverRate != null" >
+        accounts_payable_turnover_rate,
+      </if>
+      <if test="daysPayable != null" >
+        days_payable,
+      </if>
+      <if test="cashTurnoverDays != null" >
+        cash_turnover_days,
+      </if>
+      <if test="turnoverRateOfCurrentAssets != null" >
+        turnover_rate_of_current_assets,
+      </if>
+      <if test="turnoverOfTotalAssets != null" >
+        turnover_of_total_assets,
+      </if>
+      <if test="salesCashRatio != null" >
+        sales_cash_ratio,
+      </if>
+      <if test="netProfitCashContent != null" >
+        net_profit_cash_content,
+      </if>
+      <if test="cashManagementIndex != null" >
+        cash_management_index,
+      </if>
+      <if test="cashSatisfactionRatio != null" >
+        cash_satisfaction_ratio,
+      </if>
+      <if test="netCashFlowGrowthRate != null" >
+        net_cash_flow_growth_rate,
+      </if>
+      <if test="sellingExpenseRatio != null" >
+        selling_expense_ratio,
+      </if>
+      <if test="managementExpenseRatio != null" >
+        management_expense_ratio,
+      </if>
+      <if test="coreProfitGeneratingCashFlowCapability != null" >
+        core_profit_generating_cash_flow_capability,
+      </if>
+      <if test="returnOnOperatingAssets != null" >
+        return_on_operating_assets,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="no != null" >
+        #{no,jdbcType=INTEGER},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stockId != null" >
+        #{stockId,jdbcType=VARCHAR},
+      </if>
+      <if test="reportType != null" >
+        #{reportType,jdbcType=TINYINT},
+      </if>
+      <if test="reportDate != null" >
+        #{reportDate,jdbcType=DATE},
+      </if>
+      <if test="grossMargin != null" >
+        #{grossMargin,jdbcType=DECIMAL},
+      </if>
+      <if test="netInterestRate != null" >
+        #{netInterestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="coreProfitMargin != null" >
+        #{coreProfitMargin,jdbcType=DECIMAL},
+      </if>
+      <if test="coreProfit != null" >
+        #{coreProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="roe != null" >
+        #{roe,jdbcType=DECIMAL},
+      </if>
+      <if test="returnOnTotalAssets != null" >
+        #{returnOnTotalAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="assetsAndLiabilities != null" >
+        #{assetsAndLiabilities,jdbcType=DECIMAL},
+      </if>
+      <if test="dividendYield != null" >
+        #{dividendYield,jdbcType=DECIMAL},
+      </if>
+      <if test="peRatioPe != null" >
+        #{peRatioPe,jdbcType=DECIMAL},
+      </if>
+      <if test="pb != null" >
+        #{pb,jdbcType=DECIMAL},
+      </if>
+      <if test="psRatio != null" >
+        #{psRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="pcf != null" >
+        #{pcf,jdbcType=DECIMAL},
+      </if>
+      <if test="quickRatio != null" >
+        #{quickRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="currentRatio != null" >
+        #{currentRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="longTermDebtToEquityRatio != null" >
+        #{longTermDebtToEquityRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="cashRatio != null" >
+        #{cashRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="earnedInterestMultiple != null" >
+        #{earnedInterestMultiple,jdbcType=DECIMAL},
+      </if>
+      <if test="shareholdersEquityRatio != null" >
+        #{shareholdersEquityRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="debtToOwnerEquityRatio != null" >
+        #{debtToOwnerEquityRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="capitalFixedRatio != null" >
+        #{capitalFixedRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="accountsReceivableTurnoverRatio != null" >
+        #{accountsReceivableTurnoverRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="daysReceivable != null" >
+        #{daysReceivable,jdbcType=DECIMAL},
+      </if>
+      <if test="inventoryTurnover != null" >
+        #{inventoryTurnover,jdbcType=DECIMAL},
+      </if>
+      <if test="inventoryDays != null" >
+        #{inventoryDays,jdbcType=DECIMAL},
+      </if>
+      <if test="accountsPayableTurnoverRate != null" >
+        #{accountsPayableTurnoverRate,jdbcType=DECIMAL},
+      </if>
+      <if test="daysPayable != null" >
+        #{daysPayable,jdbcType=DECIMAL},
+      </if>
+      <if test="cashTurnoverDays != null" >
+        #{cashTurnoverDays,jdbcType=DECIMAL},
+      </if>
+      <if test="turnoverRateOfCurrentAssets != null" >
+        #{turnoverRateOfCurrentAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="turnoverOfTotalAssets != null" >
+        #{turnoverOfTotalAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="salesCashRatio != null" >
+        #{salesCashRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="netProfitCashContent != null" >
+        #{netProfitCashContent,jdbcType=DECIMAL},
+      </if>
+      <if test="cashManagementIndex != null" >
+        #{cashManagementIndex,jdbcType=DECIMAL},
+      </if>
+      <if test="cashSatisfactionRatio != null" >
+        #{cashSatisfactionRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="netCashFlowGrowthRate != null" >
+        #{netCashFlowGrowthRate,jdbcType=DECIMAL},
+      </if>
+      <if test="sellingExpenseRatio != null" >
+        #{sellingExpenseRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="managementExpenseRatio != null" >
+        #{managementExpenseRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="coreProfitGeneratingCashFlowCapability != null" >
+        #{coreProfitGeneratingCashFlowCapability,jdbcType=DECIMAL},
+      </if>
+      <if test="returnOnOperatingAssets != null" >
+        #{returnOnOperatingAssets,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gegaofeng.stock.model.CalculationGuideLine" >
+    update calculation_guide_line
+    <set >
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stockId != null" >
+        stock_id = #{stockId,jdbcType=VARCHAR},
+      </if>
+      <if test="reportType != null" >
+        report_type = #{reportType,jdbcType=TINYINT},
+      </if>
+      <if test="reportDate != null" >
+        report_date = #{reportDate,jdbcType=DATE},
+      </if>
+      <if test="grossMargin != null" >
+        gross_margin = #{grossMargin,jdbcType=DECIMAL},
+      </if>
+      <if test="netInterestRate != null" >
+        net_interest_rate = #{netInterestRate,jdbcType=DECIMAL},
+      </if>
+      <if test="coreProfitMargin != null" >
+        core_profit_margin = #{coreProfitMargin,jdbcType=DECIMAL},
+      </if>
+      <if test="coreProfit != null" >
+        core_profit = #{coreProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="roe != null" >
+        roe = #{roe,jdbcType=DECIMAL},
+      </if>
+      <if test="returnOnTotalAssets != null" >
+        return_on_total_assets = #{returnOnTotalAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="assetsAndLiabilities != null" >
+        assets_and_liabilities = #{assetsAndLiabilities,jdbcType=DECIMAL},
+      </if>
+      <if test="dividendYield != null" >
+        dividend_yield = #{dividendYield,jdbcType=DECIMAL},
+      </if>
+      <if test="peRatioPe != null" >
+        pe_ratio_pe = #{peRatioPe,jdbcType=DECIMAL},
+      </if>
+      <if test="pb != null" >
+        pb = #{pb,jdbcType=DECIMAL},
+      </if>
+      <if test="psRatio != null" >
+        ps_ratio = #{psRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="pcf != null" >
+        pcf = #{pcf,jdbcType=DECIMAL},
+      </if>
+      <if test="quickRatio != null" >
+        quick_ratio = #{quickRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="currentRatio != null" >
+        current_ratio = #{currentRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="longTermDebtToEquityRatio != null" >
+        long_term_debt_to_equity_ratio = #{longTermDebtToEquityRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="cashRatio != null" >
+        cash_ratio = #{cashRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="earnedInterestMultiple != null" >
+        earned_interest_multiple = #{earnedInterestMultiple,jdbcType=DECIMAL},
+      </if>
+      <if test="shareholdersEquityRatio != null" >
+        shareholders_equity_ratio = #{shareholdersEquityRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="debtToOwnerEquityRatio != null" >
+        debt_to_owner_equity_ratio = #{debtToOwnerEquityRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="capitalFixedRatio != null" >
+        capital_fixed_ratio = #{capitalFixedRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="accountsReceivableTurnoverRatio != null" >
+        accounts_receivable_turnover_ratio = #{accountsReceivableTurnoverRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="daysReceivable != null" >
+        days_receivable = #{daysReceivable,jdbcType=DECIMAL},
+      </if>
+      <if test="inventoryTurnover != null" >
+        inventory_turnover = #{inventoryTurnover,jdbcType=DECIMAL},
+      </if>
+      <if test="inventoryDays != null" >
+        inventory_days = #{inventoryDays,jdbcType=DECIMAL},
+      </if>
+      <if test="accountsPayableTurnoverRate != null" >
+        accounts_payable_turnover_rate = #{accountsPayableTurnoverRate,jdbcType=DECIMAL},
+      </if>
+      <if test="daysPayable != null" >
+        days_payable = #{daysPayable,jdbcType=DECIMAL},
+      </if>
+      <if test="cashTurnoverDays != null" >
+        cash_turnover_days = #{cashTurnoverDays,jdbcType=DECIMAL},
+      </if>
+      <if test="turnoverRateOfCurrentAssets != null" >
+        turnover_rate_of_current_assets = #{turnoverRateOfCurrentAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="turnoverOfTotalAssets != null" >
+        turnover_of_total_assets = #{turnoverOfTotalAssets,jdbcType=DECIMAL},
+      </if>
+      <if test="salesCashRatio != null" >
+        sales_cash_ratio = #{salesCashRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="netProfitCashContent != null" >
+        net_profit_cash_content = #{netProfitCashContent,jdbcType=DECIMAL},
+      </if>
+      <if test="cashManagementIndex != null" >
+        cash_management_index = #{cashManagementIndex,jdbcType=DECIMAL},
+      </if>
+      <if test="cashSatisfactionRatio != null" >
+        cash_satisfaction_ratio = #{cashSatisfactionRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="netCashFlowGrowthRate != null" >
+        net_cash_flow_growth_rate = #{netCashFlowGrowthRate,jdbcType=DECIMAL},
+      </if>
+      <if test="sellingExpenseRatio != null" >
+        selling_expense_ratio = #{sellingExpenseRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="managementExpenseRatio != null" >
+        management_expense_ratio = #{managementExpenseRatio,jdbcType=DECIMAL},
+      </if>
+      <if test="coreProfitGeneratingCashFlowCapability != null" >
+        core_profit_generating_cash_flow_capability = #{coreProfitGeneratingCashFlowCapability,jdbcType=DECIMAL},
+      </if>
+      <if test="returnOnOperatingAssets != null" >
+        return_on_operating_assets = #{returnOnOperatingAssets,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where no = #{no,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gegaofeng.stock.model.CalculationGuideLine" >
+    update calculation_guide_line
+    set update_date = #{updateDate,jdbcType=TIMESTAMP},
+      stock_id = #{stockId,jdbcType=VARCHAR},
+      report_type = #{reportType,jdbcType=TINYINT},
+      report_date = #{reportDate,jdbcType=DATE},
+      gross_margin = #{grossMargin,jdbcType=DECIMAL},
+      net_interest_rate = #{netInterestRate,jdbcType=DECIMAL},
+      core_profit_margin = #{coreProfitMargin,jdbcType=DECIMAL},
+      core_profit = #{coreProfit,jdbcType=DECIMAL},
+      roe = #{roe,jdbcType=DECIMAL},
+      return_on_total_assets = #{returnOnTotalAssets,jdbcType=DECIMAL},
+      assets_and_liabilities = #{assetsAndLiabilities,jdbcType=DECIMAL},
+      dividend_yield = #{dividendYield,jdbcType=DECIMAL},
+      pe_ratio_pe = #{peRatioPe,jdbcType=DECIMAL},
+      pb = #{pb,jdbcType=DECIMAL},
+      ps_ratio = #{psRatio,jdbcType=DECIMAL},
+      pcf = #{pcf,jdbcType=DECIMAL},
+      quick_ratio = #{quickRatio,jdbcType=DECIMAL},
+      current_ratio = #{currentRatio,jdbcType=DECIMAL},
+      long_term_debt_to_equity_ratio = #{longTermDebtToEquityRatio,jdbcType=DECIMAL},
+      cash_ratio = #{cashRatio,jdbcType=DECIMAL},
+      earned_interest_multiple = #{earnedInterestMultiple,jdbcType=DECIMAL},
+      shareholders_equity_ratio = #{shareholdersEquityRatio,jdbcType=DECIMAL},
+      debt_to_owner_equity_ratio = #{debtToOwnerEquityRatio,jdbcType=DECIMAL},
+      capital_fixed_ratio = #{capitalFixedRatio,jdbcType=DECIMAL},
+      accounts_receivable_turnover_ratio = #{accountsReceivableTurnoverRatio,jdbcType=DECIMAL},
+      days_receivable = #{daysReceivable,jdbcType=DECIMAL},
+      inventory_turnover = #{inventoryTurnover,jdbcType=DECIMAL},
+      inventory_days = #{inventoryDays,jdbcType=DECIMAL},
+      accounts_payable_turnover_rate = #{accountsPayableTurnoverRate,jdbcType=DECIMAL},
+      days_payable = #{daysPayable,jdbcType=DECIMAL},
+      cash_turnover_days = #{cashTurnoverDays,jdbcType=DECIMAL},
+      turnover_rate_of_current_assets = #{turnoverRateOfCurrentAssets,jdbcType=DECIMAL},
+      turnover_of_total_assets = #{turnoverOfTotalAssets,jdbcType=DECIMAL},
+      sales_cash_ratio = #{salesCashRatio,jdbcType=DECIMAL},
+      net_profit_cash_content = #{netProfitCashContent,jdbcType=DECIMAL},
+      cash_management_index = #{cashManagementIndex,jdbcType=DECIMAL},
+      cash_satisfaction_ratio = #{cashSatisfactionRatio,jdbcType=DECIMAL},
+      net_cash_flow_growth_rate = #{netCashFlowGrowthRate,jdbcType=DECIMAL},
+      selling_expense_ratio = #{sellingExpenseRatio,jdbcType=DECIMAL},
+      management_expense_ratio = #{managementExpenseRatio,jdbcType=DECIMAL},
+      core_profit_generating_cash_flow_capability = #{coreProfitGeneratingCashFlowCapability,jdbcType=DECIMAL},
+      return_on_operating_assets = #{returnOnOperatingAssets,jdbcType=DECIMAL}
+    where no = #{no,jdbcType=INTEGER}
+  </update>
+</mapper>
