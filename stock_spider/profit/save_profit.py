@@ -4,8 +4,7 @@ import time
 from tools.mysql_connector import mydb
 from tools.math_tool import is_number
 import datetime
-import numpy as np
-import pandas as pd
+from tools.data_import_error import save as error_save
 
 
 # data=pd.read_table("../../document/profit/600795.xls",sep="\t")
@@ -128,10 +127,16 @@ def save_data(stockid):
     for i in range(1, period):
         data = get_profit_by_stockid_col(stockid, i)
         if (is_existed(sqlIsExist, stockid, data)):
-            print("股票代码：" + str(stockid) + "的" + data[0] + "期数据已存在")
+            print("股票代码：" + str(stockid) + "的利润表" + data[0] + "期数据已存在")
         else:
-            save(sqlSaveAllProfit, get_profit_by_stockid_col(stockid, i))
-            print("存储第" + str(i) + "列数据成功")
+            try:
+                save(sqlSaveAllProfit, get_profit_by_stockid_col(stockid, i))
+            except BaseException:
+                print("存储股票代码：" + str(stockid) + "的利润表" + data[0] + "期数据发生错误")
+                error_save(stockid, data[0], 1)
+                # time.sleep(1.5)
+            else:
+                print("存储第存储股票代码：" + str(stockid) + "的利润表" + str(i) + "列数据成功")
 
 
 # get_period(('600795'))
@@ -147,8 +152,9 @@ def save_all_stock_profit_data(startRow=1, endRow=1):
     for row in range(startRow, endRow):
         stockId = str(sheet.cell_value(row, 0))
         print('股票代码:' + stockId)
+        print("开始存储第" + str(row) + "行数据，股票代码：" + stockId)
         save_data(str(stockId))
         print('==================')
 
 
-save_all_stock_profit_data(1, 1000)
+save_all_stock_profit_data(1, 2000)

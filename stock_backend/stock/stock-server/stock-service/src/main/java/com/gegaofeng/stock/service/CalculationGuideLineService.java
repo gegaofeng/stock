@@ -32,6 +32,7 @@ public class CalculationGuideLineService {
     CashFlowMapper cashFlowMapper;
 
     private final BigDecimal ONE_YEAR = new BigDecimal(360);
+    private String GUIDE_LINE_ERROR_MSG = "对应财报不存在";
 
     public Object calculateGuideLine(String stockId, String reportDate) {
         CalculationGuideLine cg = new CalculationGuideLine();
@@ -41,6 +42,9 @@ public class CalculationGuideLineService {
         p = profitMapper.selectByStockIdAndReportDate(stockId, reportDate);
         a = assetsMapper.selectAssetsByStockIdAndReportDate(stockId, reportDate);
         c = cashFlowMapper.selectByStockIdAndReportDate(stockId, reportDate);
+        if (null == p || null == a || null == c) {
+            return GUIDE_LINE_ERROR_MSG;
+        }
         //设置指标基本内容
         cg.setStockId(p.getStockId());
         cg.setReportType(p.getReportType());
@@ -71,21 +75,21 @@ public class CalculationGuideLineService {
 //        市现率PCF
         cg.setPcf(null);
 //        速动比率（%）
-        cg.setQuickRatio(MathUtils.divide(MathUtils.subtract(a.getTotalCurrentAssets(),a.getStock()),
+        cg.setQuickRatio(MathUtils.divide(MathUtils.subtract(a.getTotalCurrentAssets(), a.getStock()),
                 a.getTotalCurrentLiabilities()));
 //        流动比率（%）
-        cg.setCurrentRatio(MathUtils.divide(a.getCurrentAssets(),a.getTotalCurrentLiabilities()));
+        cg.setCurrentRatio(MathUtils.divide(a.getCurrentAssets(), a.getTotalCurrentLiabilities()));
 //        长期债务权益比
-        cg.setLongTermDebtToEquityRatio(MathUtils.divide(a.getTotalNonCurrentLiabilities(),a.getTotalEquityToParent()));
+        cg.setLongTermDebtToEquityRatio(MathUtils.divide(a.getTotalNonCurrentLiabilities(), a.getTotalEquityToParent()));
 //        现金比率（%）
-        cg.setCashRatio(MathUtils.divide(a.getMoneyFunds(),a.getTotalCurrentLiabilities()));
+        cg.setCashRatio(MathUtils.divide(a.getMoneyFunds(), a.getTotalCurrentLiabilities()));
 //        已获利息倍数
-        cg.setEarnedInterestMultiple(MathUtils.divide(MathUtils.add(p.getTotalProfit(),p.getFinancialExpenses()),
+        cg.setEarnedInterestMultiple(MathUtils.divide(MathUtils.add(p.getTotalProfit(), p.getFinancialExpenses()),
                 p.getFinancialExpenses()));
 //        股东权益比率（%）
-        cg.setShareholdersEquityRatio(MathUtils.divide(a.getTotalEquity(),a.getTotalAssets()));
+        cg.setShareholdersEquityRatio(MathUtils.divide(a.getTotalEquity(), a.getTotalAssets()));
 //        负债与所有者权益比率（%）
-        cg.setDebtToOwnerEquityRatio(MathUtils.divide(a.getTotalLiabilities(),a.getTotalEquity()));
+        cg.setDebtToOwnerEquityRatio(MathUtils.divide(a.getTotalLiabilities(), a.getTotalEquity()));
 //        资本固定化比率（%）
         cg.setCapitalFixedRatio(null);
 //        资产负债率（%）

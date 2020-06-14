@@ -4,6 +4,7 @@ import com.gegaofeng.stock.model.CalculationGuideLine;
 import com.gegaofeng.stock.service.CalculationGuideLineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -17,8 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class GuideLineController {
     @Autowired
     CalculationGuideLineService calculationGuideLineService;
+
     @RequestMapping("/*")
-    public Object test(){
-        return calculationGuideLineService.calculateGuideLine("002071","20140930");
+    public Object test(@RequestParam(value = "stockId", defaultValue = "") String stockId,
+                       @RequestParam(value = "reportDate", defaultValue = "") String reportDate) {
+        if (stockId == null || stockId.trim().length() == 0) {
+            stockId = "300309";
+        }
+        if (reportDate == null || reportDate.trim().length() == 0) {
+            reportDate = "20191231";
+        }
+        return calculationGuideLineService.calculateGuideLine(stockId, reportDate);
     }
 }

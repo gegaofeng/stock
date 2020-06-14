@@ -24,13 +24,13 @@ def get_profit(code):
     savePath = '../../document/profit/'
     # 判断文件是否存在
     if (os.path.exists(savePath + fileName)):
-        print('文件"' + fileName + '”已存在')
+        print('资产表文件"' + fileName + '”已存在')
     else:
         file_download(get_url(code), fileName, savePath)
         if (os.path.exists(savePath + fileName)):
-            print('文件“' + fileName + '”下载成功')
+            print('利润表文件“' + fileName + '”下载成功')
         else:
-            print('文件“' + fileName + '”下载失败')
+            print('利润表文件“' + fileName + '”下载失败')
 
 
 def get_all_profit(filePath='', startRow=1, endRow=1):

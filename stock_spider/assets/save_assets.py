@@ -4,6 +4,7 @@ import time
 from tools.mysql_connector import mydb
 from tools.math_tool import is_number
 import datetime
+from tools.data_import_error import save as error_save
 
 
 # 根据stockId获取指定列数据
@@ -117,10 +118,16 @@ def save_data(stockId):
     for i in range(1, period):
         data = get_assets_by_stockid_col(stockId, i)
         if (is_existed(sqlIsExisted, stockId, data)):
-            print("股票代码：" + str(stockId) + "的" + data[0] + "期数据已存在")
+            print("股票代码：" + str(stockId) + "的资产表" + data[0] + "期数据已存在")
         else:
-            save(sqlSaveAll, get_assets_by_stockid_col(stockId, i))
-            print("存储第" + str(i) + "列数据成功")
+            try:
+                save(sqlSaveAll, get_assets_by_stockid_col(stockId, i))
+            except BaseException:
+                print("存储股票代码：" + str(stockId) + "的资产表" + data[0] + "期数据发生错误")
+                error_save(stockId, data[0], 1)
+                # time.sleep(1.5)
+            else:
+                print("存储第" + str(i) + "列数据成功")
 
 
 # 存储所有股票的资产负债表数据
@@ -137,4 +144,4 @@ def save_all_stock_assets_data(startRow=1, endRow=1):
 # save(sqlSaveAll,get_assets_by_stockid_col('688318',1))
 # get_period('688318')
 # save_data('688318')
-save_all_stock_assets_data(1, 7)
+save_all_stock_assets_data(1, 2000)
