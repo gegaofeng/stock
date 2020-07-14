@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.javaboy.vhr.model.SysMsg" >
+  <update id="updateByPrimaryKey" parameterType="com.gegaofeng.stock.model.SysMsg" >
     update sysmsg
     set mid = #{mid,jdbcType=INTEGER},
       type = #{type,jdbcType=INTEGER},

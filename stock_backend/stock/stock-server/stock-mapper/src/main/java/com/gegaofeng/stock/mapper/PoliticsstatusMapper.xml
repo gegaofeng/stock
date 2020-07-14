@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.gegaofeng.stock.mapper.PoliticsstatusMapper" >
-  <resultMap id="BaseResultMap" type="org.javaboy.vhr.model.Politicsstatus" >
+  <resultMap id="BaseResultMap" type="com.gegaofeng.stock.model.Politicsstatus" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
@@ -21,11 +21,11 @@
     delete from politicsstatus
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="org.javaboy.vhr.model.Politicsstatus" >
+  <insert id="insert" parameterType="com.gegaofeng.stock.model.Politicsstatus" >
     insert into politicsstatus (id, name)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="org.javaboy.vhr.model.Politicsstatus" >
+  <insert id="insertSelective" parameterType="com.gegaofeng.stock.model.Politicsstatus" >
     insert into politicsstatus
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -44,7 +44,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.javaboy.vhr.model.Politicsstatus" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.gegaofeng.stock.model.Politicsstatus" >
     update politicsstatus
     <set >
       <if test="name != null" >
@@ -53,7 +53,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="org.javaboy.vhr.model.Politicsstatus" >
+  <update id="updateByPrimaryKey" parameterType="com.gegaofeng.stock.model.Politicsstatus" >
     update politicsstatus
     set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
